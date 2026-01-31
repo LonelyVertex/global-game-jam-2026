@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -128,6 +129,7 @@ public class PlayerStats : MonoBehaviour
         if (currentLevel < levelBasedOnCurrentXp)
         {
             currentLevel = levelBasedOnCurrentXp;
+            GameManager.Instance.ShowSkillSelection();
             Debug.Log($"Player leveled up to level {levelBasedOnCurrentXp}!");
         }
 
@@ -155,6 +157,27 @@ public class PlayerStats : MonoBehaviour
         // Invert: totalXp = A*(L-1)^P  =>  L = 1 + (totalXp/A)^(1/P)
         float x = Mathf.Pow(totalXp / A, 1f / P);
         return Mathf.FloorToInt(x) + 1;
+    }
+
+    public void TakeSkill(SkillInfo skillInfo)
+    {
+        switch (skillInfo.type)
+        {
+            case SkillInfo.SkillType.movementSpeed:
+                movementSpeed *= skillInfo.value;
+                break;
+            case SkillInfo.SkillType.armor:
+                armor += skillInfo.value;
+                armor = Mathf.Clamp(armor, 0f, 0.9f);
+                break;
+            case SkillInfo.SkillType.evasion:
+                evasion += skillInfo.value;
+                evasion = Mathf.Clamp(evasion, 0f, 0.9f);
+                break;
+            default:
+                Debug.LogWarning("Unknown skill type.");
+                break;
+        }
     }
 
 }

@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private MaskSelectionPanel maskSelectionPanel;
+    [SerializeField] private SkillSelectionPanel skillSelectionPanel;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject maskProjectileManagerPrefab;
@@ -110,6 +111,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void ShowSkillSelection()
+    {
+        skillSelectionPanel.GenerateOptions();
+        skillSelectionPanel.gameObject.SetActive(true);
+
+        Time.timeScale = 0;
+    }
+
     public void EquipMask(MaskInfo maskInfo)
     {
         var playerTransform = PlayerStats.Instance.transform;
@@ -123,6 +132,14 @@ public class GameManager : MonoBehaviour
         PlayerMasksController.Instance.EquipMask(maskInfo);
 
         maskSelectionPanel.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void TakeSkill(SkillInfo skillInfo)
+    {
+        PlayerStats.Instance.TakeSkill(skillInfo);
+
+        skillSelectionPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
