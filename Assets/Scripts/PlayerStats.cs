@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float armor = 0f;
     [Range(0f, 11f)]
-    [SerializeField] private float evasion = 0.1f;
+    [SerializeField] private float evasion = 0f;
     [SerializeField] private float attackSpeed = 1f;
 
     public readonly List<MaskInfo> _equippedMasks = new();
@@ -53,7 +53,7 @@ public class PlayerStats : MonoBehaviour
 
     public float MovementSpeed
     {
-        get => movementSpeed * (1 + movementSpeedBonus);
+        get => movementSpeed * (1 + GetEffectiveMovementSpeedup());
         private set => movementSpeed = value;
     }
 
@@ -85,7 +85,7 @@ public class PlayerStats : MonoBehaviour
             return;
         }
         //apply evasion
-        if (Random.value < evasion)
+        if (IsEvaded())
         {
             Debug.Log("Player evaded the attack!");
             return;
@@ -168,6 +168,19 @@ public class PlayerStats : MonoBehaviour
         return armor / (armor + K);   // in [0, 1), if armor >= 0
     }
 
+    public GetEffectiveMovementSpeedup()
+    {
+        float K = 1f;
+        return movementSpeed / (movementSpeed + K);
+    }
+
+    public IsEvedaded()
+    {
+        float K = 10f;
+        var calculated = evasion / (evasion + K);
+        return Random.value < calculated;
+    }
+
     public void TakeSkill(SkillInfo skillInfo)
     {
         switch (skillInfo.type)
@@ -180,7 +193,6 @@ public class PlayerStats : MonoBehaviour
                 break;
             case SkillInfo.SkillType.evasion:
                 evasion += skillInfo.value;
-                evasion = Mathf.Clamp(evasion, 0f, 0.9f);
                 break;
             case SkillInfo.SkillType.regeneration:
                 hitpointsRegen *= skillInfo.value;
