@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
-  m_Name: LaserMask
+  m_Name: PlasmagunMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Laser Mask
+  maskName: Plasmagun Mask
   description: 
-  damage: 30
+  damage: 20
   range: 10
-  cooldown: 2
+  cooldown: 1
   spawnType: 0
-  projectilePrefab: {fileID: 3108319004652501782, guid: 12feffbdebb0946599a344e269b088f0, type: 3}
+  projectilePrefab: {fileID: 3108319004652501782, guid: 949543d6a10804e31a76d3b73f8e62f9, type: 3}
   projectileSpawnRadius: 1
   projectileSpeed: 30
   projectileCount: 1
   projectilePiercing: 0
-  projectileBounce: 0
-  projectileBounceRange: 0
+  projectileBounce: 2
+  projectileBounceRange: 5
   projectileDestroyDelay: 0
   frontalSpreadAngle: 0
   orbitalSpeed: 0
@@ -33,5 +33,5 @@ MonoBehaviour:
   splashRadius: 0
   splashDamageDelay: 0
   splashLifetime: 0
-  screenMaskPrefab: {fileID: 7439914569369150380, guid: 8a716edafe1df434faad6ba46cb01522, type: 3}
-  playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}
+  screenMaskPrefab: {fileID: 0}
+  playerMaskPrefab: {fileID: 0}

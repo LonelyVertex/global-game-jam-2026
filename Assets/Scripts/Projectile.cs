@@ -46,34 +46,9 @@ public class Projectile : MonoBehaviour
             Vector3 direction = (_lastTargetPosition - transform.position).normalized;
             rigidBody.MovePosition(transform.position + (direction * (_maskInfo.projectileSpeed * Time.fixedDeltaTime)));
 
-            // destroy the projectile if it reaches the last known position of the target, and it was destroyed while it was flying
             if (Vector3.Distance(transform.position, _lastTargetPosition) < 0.1f)
             {
-                if (_targetTransform)
-                {
-                    _bouncedTargets.Add(_targetTransform);
-                }
-
-                if (_maskInfo.projectileBounce > 0 && _bounceCount < _maskInfo.projectileBounce)
-                {
-                    var nextEnemy = Utils
-                        .FindEnemiesInRangeSorted(transform.position, _maskInfo.projectileBounceRange)
-                        .FirstOrDefault(e => !_bouncedTargets.Contains(e));
-
-                    if (nextEnemy != null)
-                    {
-                        SetTarget(nextEnemy);
-                        _bounceCount++;
-                    }
-                    else
-                    {
-                        DestroySelf();
-                    }
-                }
-                else
-                {
-                    DestroySelf();
-                }
+                BounceOrDestroy();
             }
         }
         else
@@ -113,9 +88,42 @@ public class Projectile : MonoBehaviour
             SpawnHitEffect();
         }
 
-        if (!_maskInfo.projectilePiercing && _maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
+        if (_maskInfo.projectileBounce > 0)
         {
-            Destroy(gameObject);
+            BounceOrDestroy();
+        } else if (!_maskInfo.projectilePiercing && _maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
+        {
+            DestroySelf();
+        }
+    }
+
+    private void BounceOrDestroy()
+    {
+        if (_targetTransform)
+        {
+            _bouncedTargets.Add(_targetTransform);
+        }
+
+        if (_maskInfo.projectileBounce > 0 && _bounceCount < _maskInfo.projectileBounce)
+        {
+            var nextEnemy = Utils
+                .FindEnemiesInRange(transform.position, _maskInfo.projectileBounceRange)
+                .OrderBy(_ => Random.value)
+                .FirstOrDefault(e => !_bouncedTargets.Contains(e));
+
+            if (nextEnemy)
+            {
+                SetTarget(nextEnemy);
+                _bounceCount++;
+            }
+            else
+            {
+                DestroySelf();
+            }
+        }
+        else
+        {
+            DestroySelf();
         }
     }
 
