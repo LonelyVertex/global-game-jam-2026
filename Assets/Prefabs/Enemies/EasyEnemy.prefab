@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8968971903810107814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: likelihoodToSpawnMask
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

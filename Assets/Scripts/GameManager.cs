@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnRadius;
     [SerializeField] private float spawnInterval;
-    [SerializeField] private GameObject[] enemiesPrefabs;
+    [SerializeField] private EnemySpawner enemySpawner;
 
     [Header("Mask Box")]
     [SerializeField] private MaskBox maskBoxPrefab;
@@ -95,15 +95,10 @@ public class GameManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (enemiesPrefabs==null || enemiesPrefabs.Length == 0) return;
-
-        if (TryGetSpawnPositionOnCircle(player.transform.position, spawnRadius, out var spawnPos))
-        {
-            //get random enemy prefab
-            var enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
-            var spawnPosition = Utils.Vector3XY(spawnPos, enemyPrefab.transform.position);
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        }
+        if (enemySpawner==null ) return;
+        var spawnPosition = TryGetSpawnPositionOnCircle(player.transform.position, spawnRadius, out var spawnPos);
+        if (!spawnPosition) return;
+        enemySpawner.SpawnEnemy(spawnPos, PlayerStats.Instance.currentLevel);
     }
 
     public void ShowMaskSelection()

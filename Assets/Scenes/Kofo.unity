@@ -455,6 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489978806}
   - component: {fileID: 489978805}
+  - component: {fileID: 489978807}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -481,11 +482,8 @@ MonoBehaviour:
   player: {fileID: 969173352}
   enemyPrefab: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
   spawnRadius: 20
-  spawnInterval: 1
-  enemiesPrefabs:
-  - {fileID: 4557046226683001442, guid: b7b500ac7ae084f948283e89a6609c44, type: 3}
-  - {fileID: 2072368069548183866, guid: 2c3595c98b3b9462f9b11158c155bcec, type: 3}
-  - {fileID: 7168572403453694328, guid: eb06286c4d8644b13ab10e23f087dd87, type: 3}
+  spawnInterval: 1.5
+  enemySpawner: {fileID: 489978807}
   maskBoxPrefab: {fileID: 3145572443098379115, guid: c579fd17545034ae2b255b5240f59bb0, type: 3}
   firstMaskRadius: 3
   obstacleMask:
@@ -510,6 +508,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489978807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489978804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabac4a14cd9044ec846fed4be270426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  spawnTable:
+  - prefab: {fileID: 4557046226683001442, guid: b7b500ac7ae084f948283e89a6609c44, type: 3}
+    minPlayerLevel: 1
+    weight: 70
+  - prefab: {fileID: 2072368069548183866, guid: 2c3595c98b3b9462f9b11158c155bcec, type: 3}
+    minPlayerLevel: 5
+    weight: 25
+  - prefab: {fileID: 7168572403453694328, guid: eb06286c4d8644b13ab10e23f087dd87, type: 3}
+    minPlayerLevel: 10
+    weight: 5
+  player: {fileID: 969173356}
 --- !u!114 &544263487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +730,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7343910512132710717, guid: f101737ca4eaa4151a437e405638edc6, type: 3}
+      propertyPath: audioSourcePrefab
+      value: 
+      objectReference: {fileID: 5408645883501296147, guid: 25ccfdeea5bf244f4b88dbb1d57b58e6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
