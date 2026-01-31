@@ -31,6 +31,7 @@ public class MaskInfo : ScriptableObject
     public float projectileBounceRange;
     public float projectileDamageDelay;
     public float projectileDestroyDelay;
+    public float projectileLifetime;
 
     [Header("Frontal")]
     public float frontalSpreadAngle;

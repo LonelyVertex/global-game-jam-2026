@@ -27,6 +27,7 @@ MonoBehaviour:
   projectileBounceRange: 0
   projectileDamageDelay: 0
   projectileDestroyDelay: 0
+  projectileLifetime: 1
   frontalSpreadAngle: 0
   orbitalSpeed: 0
   splashPrefab: {fileID: 0}

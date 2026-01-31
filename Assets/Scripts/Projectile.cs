@@ -23,6 +23,11 @@ public class Projectile : MonoBehaviour
     public void SetMaskInfo(MaskInfo maskInfo)
     {
         _maskInfo = maskInfo;
+
+        if (maskInfo.projectileLifetime > 0)
+        {
+            Invoke(nameof(DestroySelf), _maskInfo.projectileLifetime);
+        }
     }
 
     public void SetTarget(Transform targetTransform)
@@ -68,6 +73,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!_maskInfo) return;
         if (!other.CompareTag("Enemy")) return;
 
         var enemyHealth = other.GetComponent<EnemyHealth>();
@@ -79,6 +85,7 @@ public class Projectile : MonoBehaviour
 
             if (damage > 0)
             {
+                Debug.Log($"Enemy taking damage {damage} from {gameObject.name}");
                 enemyHealth.TakeDamage(
                     PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
                     PlayerStats.Instance.IsCriticalHit()
@@ -91,7 +98,8 @@ public class Projectile : MonoBehaviour
         if (_maskInfo.projectileBounce > 0)
         {
             BounceOrDestroy();
-        } else if (!_maskInfo.projectilePiercing && _maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
+        }
+        else if (!_maskInfo.projectilePiercing && _maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
         {
             DestroySelf();
         }
