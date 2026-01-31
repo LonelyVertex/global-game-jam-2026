@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -18,5 +19,12 @@ public class MainMenuController : MonoBehaviour
     private void HandlePlayButtonOnClick()
     {
         FindFirstObjectByType<FadeController>().FadeOut();
+
+        Invoke(nameof(StartLevel), 1.0f);
+    }
+
+    private void StartLevel()
+    {
+        SceneManager.LoadScene("Scenes/Kofo");
     }
 }

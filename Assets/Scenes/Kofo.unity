@@ -833,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455846738}
   - component: {fileID: 1455846739}
+  - component: {fileID: 1455846740}
   m_Layer: 0
   m_Name: SceneScope
   m_TagString: Untagged
@@ -871,6 +872,18 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+--- !u!114 &1455846740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455846737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b991b0d73d40692488bebc3c4afdad6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeInOnLevelStart
 --- !u!1001 &1885101635
 PrefabInstance:
   m_ObjectHideFlags: 0
