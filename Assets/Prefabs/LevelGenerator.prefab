@@ -57,7 +57,7 @@ MonoBehaviour:
     randomizeScale: 0
     scaleA: 0
     scaleB: 0
-  - threshold: 0.1
+  - threshold: 0.2
     radius: 0.15
     prefabs:
     - {fileID: 706512091007864375, guid: 6c88c04312d307943bd8ccd84595fc0c, type: 3}
@@ -80,7 +80,7 @@ MonoBehaviour:
     randomizeScale: 1
     scaleA: 0.8
     scaleB: 0.4
-  - threshold: 0.1
+  - threshold: 0.21
     radius: 2.5
     prefabs:
     - {fileID: 7781574485887964018, guid: 49a846be669e4894ebe0786045a8ae7c, type: 3}

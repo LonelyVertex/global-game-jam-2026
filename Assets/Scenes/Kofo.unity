@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.025
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 410087040}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -94,7 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 3a8cb356a7b4b7d41bd51d221742b30f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -231,7 +231,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 3500
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -434,17 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d17124da87864d519b58b5cf3f3d731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskSelectionPanel
---- !u!114 &473322774 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2251566457646635551, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
-  m_PrefabInstance: {fileID: 473322772}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8a74cd66177e4044853d18c19d4152b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillSelectionPanel
 --- !u!1 &489978804
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   maskSelectionPanel: {fileID: 473322773}
-  skillSelectionPanel: {fileID: 473322774}
+  skillSelectionPanel: {fileID: 0}
   maskProjectileManagerPrefab: {fileID: 6049628441245653226, guid: 490ed3c218a05468faa745bcd51fb687, type: 3}
   levelGenerator: {fileID: 262467711}
   player: {fileID: 969173352}
@@ -548,7 +537,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -576,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 759943035}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3448067, y: 0, z: 0, w: 0.93867373}
-  m_LocalPosition: {x: 0, y: 11, z: -10}
+  m_LocalPosition: {x: 0, y: 16, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -600,7 +589,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 10, z: -10}
+  FollowOffset: {x: 0, y: 15, z: -11}
 --- !u!1 &969173352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3220988485708760117, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
@@ -862,11 +851,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1444140774196514096, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1444140774196514096, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 1444140774196514096, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -895,6 +884,26 @@ PrefabInstance:
     - target: {fileID: 1444140774196514096, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.20754719
       objectReference: {fileID: 0}
     - target: {fileID: 7554057894563051398, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_Name
