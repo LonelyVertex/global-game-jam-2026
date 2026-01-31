@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
+    private Vector3 dashTarget;
+    private Vector3 dashStartPosition;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,6 +56,20 @@ public class PlayerController : MonoBehaviour
                 playerModel.rotation = Quaternion.Slerp(playerModel.rotation, toRotation, 15f * Time.fixedDeltaTime);
             }
         }
+        if (isDashing)
+        {
+            //User LERP to do the dash movement
+            float dashProgress = (Time.time - lastDashTime) * dashSpeed / dashDistance;
+            if (dashProgress >= 1f)
+            {
+                dashProgress = 1f;
+                isDashing = false;
+                canDash = true;
+            } else {
+                Vector3 newPosition = Vector3.Lerp(dashStartPosition, dashTarget, dashProgress);
+                rigidBody.MovePosition(newPosition);
+            }
+        }
     }
 
     void Update() {
@@ -66,7 +82,6 @@ public class PlayerController : MonoBehaviour
 
     public void Dash()
     {
-        Debug.Log("Dash");
         if (canDash && Time.time >= lastDashTime + dashCooldown)
         {
             Vector3 dashDirection = playerModel.forward;
@@ -74,30 +89,8 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             lastDashTime = Time.time;
 
-            Vector3 dashTarget = rigidBody.position + dashDirection * dashDistance;
-            StartCoroutine(PerformDash(dashTarget));
+            dashTarget = rigidBody.position + dashDirection * dashDistance;
+            dashStartPosition = rigidBody.position;
         }
     }
-
-    IEnumerator PerformDash(Vector3 dashTarget)
-    {
-        float startTime = Time.time;
-        Vector3 startPosition = rigidBody.position;
-        float dashDuration = dashDistance / dashSpeed;
-
-        while (Time.time < startTime + dashDuration)
-        {
-            float t = (Time.time - startTime) / dashDuration;
-            rigidBody.MovePosition(Vector3.Lerp(startPosition, dashTarget, t));
-            yield return null;
-        }
-
-        rigidBody.MovePosition(dashTarget);
-        isDashing = false;
-
-        // Start cooldown timer
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-    }
-
 }
