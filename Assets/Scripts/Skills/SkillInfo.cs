@@ -7,7 +7,9 @@ public class SkillInfo : ScriptableObject
     {
         movementSpeed = 0,
         armor = 1,
-        evasion = 2
+        evasion = 2,
+        regeneration = 3,
+        attack_speed = 4
     }
     public string skillName;
     public string description;

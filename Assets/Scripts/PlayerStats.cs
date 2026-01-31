@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float armor = 0.1f;
     [Range(0f, 11f)]
     [SerializeField] private float evasion = 0.1f;
-    [SerializeField] private float attackSpeed = 5f;
+    [SerializeField] private float attackSpeed = 1f;
 
     public readonly List<MaskInfo> _equippedMasks = new();
 
@@ -61,7 +62,7 @@ public class PlayerStats : MonoBehaviour
 
     public float ScaleCooldown(float originalCooldown)
     {
-        return originalCooldown;
+        return originalCooldown / attackSpeed;
     }
 
     public bool IsCriticalHit()
@@ -173,6 +174,12 @@ public class PlayerStats : MonoBehaviour
             case SkillInfo.SkillType.evasion:
                 evasion += skillInfo.value;
                 evasion = Mathf.Clamp(evasion, 0f, 0.9f);
+                break;
+            case SkillInfo.SkillType.regeneration:
+                hitpointsRegen *= skillInfo.value;
+                break;
+            case SkillInfo.SkillType.attack_speed:
+                attackSpeed *= skillInfo.value;
                 break;
             default:
                 Debug.LogWarning("Unknown skill type.");
