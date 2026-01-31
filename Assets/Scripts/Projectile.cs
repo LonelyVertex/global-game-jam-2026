@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private MaskInfo maskInfo;
     [SerializeField] private Rigidbody rigidBody;
 
+    private MaskInfo _maskInfo;
     private Transform _targetTransform;
     private Vector3 _lastTargetPosition;
+
+    private readonly HashSet<GameObject> _hits = new();
 
     private float _distanceTraveled;
 
@@ -17,26 +19,31 @@ public class Projectile : MonoBehaviour
 
     private bool _isBeingDestroyed;
 
+    public void SetMaskInfo(MaskInfo maskInfo)
+    {
+        _maskInfo = maskInfo;
+    }
+
     public void SetTarget(Transform targetTransform)
     {
         _targetTransform = targetTransform;
         _lastTargetPosition = _targetTransform.position;
     }
-    private readonly HashSet<GameObject> hits = new HashSet<GameObject>();
 
     private void FixedUpdate()
     {
+        if (!_maskInfo) return;
         if (_isBeingDestroyed) return;
 
-        if (maskInfo.spawnType == MaskInfo.ESpawnType.target)
+        if (_maskInfo.spawnType == MaskInfo.ESpawnType.target)
         {
             if (_targetTransform)
             {
-                _lastTargetPosition = _targetTransform.position;
+                _lastTargetPosition = Utils.Vector3XY(_targetTransform.position, transform.position);
             }
 
             Vector3 direction = (_lastTargetPosition - transform.position).normalized;
-            rigidBody.MovePosition(transform.position + (direction * (maskInfo.projectileSpeed * Time.fixedDeltaTime)));
+            rigidBody.MovePosition(transform.position + (direction * (_maskInfo.projectileSpeed * Time.fixedDeltaTime)));
 
             // destroy the projectile if it reaches the last known position of the target, and it was destroyed while it was flying
             if (Vector3.Distance(transform.position, _lastTargetPosition) < 0.1f)
@@ -46,10 +53,10 @@ public class Projectile : MonoBehaviour
                     _bouncedTargets.Add(_targetTransform);
                 }
 
-                if (maskInfo.projectileBounce > 0 && _bounceCount < maskInfo.projectileBounce)
+                if (_maskInfo.projectileBounce > 0 && _bounceCount < _maskInfo.projectileBounce)
                 {
                     var nextEnemy = Utils
-                        .FindEnemiesInRangeSorted(transform.position, maskInfo.projectileBounceRange)
+                        .FindEnemiesInRangeSorted(transform.position, _maskInfo.projectileBounceRange)
                         .FirstOrDefault(e => !_bouncedTargets.Contains(e));
 
                     if (nextEnemy != null)
@@ -72,11 +79,11 @@ public class Projectile : MonoBehaviour
         {
             var previousPosition = transform.position;
             var nextPosition = transform.position +
-                               (transform.forward * (maskInfo.projectileSpeed * Time.fixedDeltaTime));
+                               (transform.forward * (_maskInfo.projectileSpeed * Time.fixedDeltaTime));
             rigidBody.MovePosition(nextPosition);
             _distanceTraveled += Vector3.Distance(previousPosition, nextPosition);
 
-            if (_distanceTraveled >= maskInfo.range)
+            if (_distanceTraveled >= _maskInfo.range)
             {
                 DestroySelf();
             }
@@ -88,18 +95,18 @@ public class Projectile : MonoBehaviour
         if (!other.CompareTag("Enemy")) return;
 
         var enemyHealth = other.GetComponent<EnemyHealth>();
-        if (enemyHealth != null && !hits.Contains(other.gameObject))
+        if (enemyHealth != null && !_hits.Contains(other.gameObject))
         {
-            hits.Add(other.gameObject);
+            _hits.Add(other.gameObject);
             enemyHealth.TakeDamage(
-                PlayerStats.Instance.ScaleDamage(maskInfo.damage),
+                PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
                 PlayerStats.Instance.IsCriticalHit()
             );
 
             SpawnHitEffect();
         }
 
-        if (!maskInfo.projectilePiercing && maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
+        if (!_maskInfo.projectilePiercing && _maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
         {
             Destroy(gameObject);
         }
@@ -107,15 +114,15 @@ public class Projectile : MonoBehaviour
 
     private void SpawnHitEffect()
     {
-        if (maskInfo.splashPrefab != null)
+        if (_maskInfo.splashPrefab != null)
         {
-            Instantiate(maskInfo.splashPrefab, transform.position, Quaternion.identity);
+            Instantiate(_maskInfo.splashPrefab, transform.position, Quaternion.identity);
         }
     }
 
     private void DestroySelf()
     {
         _isBeingDestroyed = true;
-        Destroy(gameObject, maskInfo.projectileDestroyDelay);
+        Destroy(gameObject, _maskInfo.projectileDestroyDelay);
     }
 }

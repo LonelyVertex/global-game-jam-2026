@@ -167,6 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -313,7 +321,7 @@ MonoBehaviour:
   maskSelectionPanel: {fileID: 471761465}
   maskProjectileManagerPrefab: {fileID: 6049628441245653226, guid: 490ed3c218a05468faa745bcd51fb687, type: 3}
   levelGenerator: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 2143017023}
   enemyPrefab: {fileID: 0}
   spawnRadius: 0
   spawnInterval: 0
@@ -554,7 +562,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -575,6 +583,51 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1062971768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062971770}
+  - component: {fileID: 1062971769}
+  m_Layer: 0
+  m_Name: DebugMaskEquip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1062971769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062971768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
+  maskInfo: {fileID: 11400000, guid: 55f6bf23f1e4b408295fcaf30bb22219, type: 2}
+--- !u!4 &1062971770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062971768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1174358469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +674,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889337625819904814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
@@ -807,6 +868,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -862,6 +931,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889337625819904814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
@@ -1031,6 +1108,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889337625819904814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
@@ -1516,6 +1601,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292736942974076069, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1545,3 +1638,4 @@ SceneRoots:
   - {fileID: 9167051363882364912}
   - {fileID: 2649923410296957718}
   - {fileID: 744859073}
+  - {fileID: 1062971770}

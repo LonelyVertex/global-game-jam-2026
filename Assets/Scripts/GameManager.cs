@@ -48,7 +48,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return StartGame();
+        if (levelGenerator)
+        {
+            yield return StartGame();
+        }
     }
 
     private IEnumerator StartGame()
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        if (!enemyPrefab) return;
+
         if (TryGetSpawnPositionOnCircle(player.transform.position, spawnRadius, out var spawnPos))
         {
             var spawnPosition = Utils.Vector3XY(spawnPos, enemyPrefab.transform.position);

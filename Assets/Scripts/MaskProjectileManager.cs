@@ -67,12 +67,15 @@ public class MaskProjectileManager : MonoBehaviour
         foreach (var e in enemies)
         {
             var direction = GetSpawnDirection(e);
-            var spawnPosition = transform.position + (direction * _maskInfo.projectileSpawnRadius);
+            var spawnPoint = transform.position + (direction * _maskInfo.projectileSpawnRadius);
+            var spawnPosition = Utils.Vector3XY(spawnPoint, _maskInfo.projectilePrefab.transform.position);
+
+            Debug.Log(spawnPosition);
 
             var projectileObject =
                 Instantiate(_maskInfo.projectilePrefab, spawnPosition, Quaternion.LookRotation(direction));
             var projectile = projectileObject.GetComponent<Projectile>();
-
+            projectile.SetMaskInfo(_maskInfo);
             if (_maskInfo.spawnType == MaskInfo.ESpawnType.target)
             {
                 projectile.SetTarget(e.transform);
@@ -85,7 +88,7 @@ public class MaskProjectileManager : MonoBehaviour
         // TODO use model transform for forward direction
         return _maskInfo.spawnType == MaskInfo.ESpawnType.frontal
             ? transform.forward
-            : (target.position - transform.position).normalized;
+            : (Utils.Vector3XY(target.position, transform.position) - transform.position).normalized;
     }
 
     private IEnumerable<Transform> FindEnemiesInRange(int enemyCount)
