@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8687265193561892631}
   - component: {fileID: 697140599450729498}
   - component: {fileID: 8968971903810107814}
+  - component: {fileID: 8639171344407879239}
+  - component: {fileID: 959818360811566424}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -159,3 +161,38 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: 0175babc9526e48a187086e87c853564, type: 2}
   damageMaterial: {fileID: 2100000, guid: 6b83c39efb70147e8be2d815b122ea8e, type: 2}
   damageEffectTime: 0.1
+--- !u!136 &8639171344407879239
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029491610602271570}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &959818360811566424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029491610602271570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b885faa4ffffa41eaae06160735db76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWeaponController

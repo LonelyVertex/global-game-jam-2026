@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public InputActionReference moveAction;
     public InputActionReference dashAction;
     public Rigidbody rigidBody;
-    public float moveSpeed = 5f;
     public Transform playerModel;
     public float dashDistance = 5f;
     public float dashCooldown = 2f;
@@ -47,7 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
             Vector3 moveVector = new Vector3(moveInput.x, 0, moveInput.y);
-            rigidBody.MovePosition(rigidBody.position + moveVector * moveSpeed * Time.fixedDeltaTime);
+            rigidBody.MovePosition(rigidBody.position + moveVector * PlayerStats.Instance.MovementSpeed * Time.fixedDeltaTime);
 
             //rotate player model to face movement direction
             if (moveVector != Vector3.zero)
