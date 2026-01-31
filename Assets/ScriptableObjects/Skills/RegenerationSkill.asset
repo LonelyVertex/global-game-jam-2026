@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillInfo
   skillName: Regeneration
   description: Healing +10%
-  value: 1.1
+  value: 0.1
   type: 3

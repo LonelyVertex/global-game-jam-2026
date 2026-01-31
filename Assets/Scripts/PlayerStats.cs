@@ -14,12 +14,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float hitpointsRegen = 1;
     [SerializeField] private float movementSpeed = 5f;
     [Range(0f, 1f)]
-    [SerializeField] private float armor = 0.1f;
+    [SerializeField] private float armor = 0f;
     [Range(0f, 11f)]
     [SerializeField] private float evasion = 0.1f;
     [SerializeField] private float attackSpeed = 1f;
 
     public readonly List<MaskInfo> _equippedMasks = new();
+
+    private float movementSpeedBonus = 0f;
 
     private void Awake()
     {
@@ -51,7 +53,7 @@ public class PlayerStats : MonoBehaviour
 
     public float MovementSpeed
     {
-        get => movementSpeed;
+        get => movementSpeed * (1 + movementSpeedBonus);
         private set => movementSpeed = value;
     }
 
@@ -89,7 +91,7 @@ public class PlayerStats : MonoBehaviour
             return;
         }
         //apply armor
-        float effectiveDamage = damage * (1 - armor);
+        float effectiveDamage = damage * (1 - GetEffectiveArmor());
 
         if (effectiveDamage > 0)
         {
@@ -160,16 +162,21 @@ public class PlayerStats : MonoBehaviour
         return Mathf.FloorToInt(x) + 1;
     }
 
+    public GetEffectiveArmor()
+    {
+        float K = 1f; // tuning constant (bigger K = armor is weaker)
+        return armor / (armor + K);   // in [0, 1), if armor >= 0
+    }
+
     public void TakeSkill(SkillInfo skillInfo)
     {
         switch (skillInfo.type)
         {
             case SkillInfo.SkillType.movementSpeed:
-                movementSpeed *= skillInfo.value;
+                movementSpeedBonus += skillInfo.value;
                 break;
             case SkillInfo.SkillType.armor:
                 armor += skillInfo.value;
-                armor = Mathf.Clamp(armor, 0f, 0.9f);
                 break;
             case SkillInfo.SkillType.evasion:
                 evasion += skillInfo.value;
