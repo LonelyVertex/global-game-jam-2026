@@ -49,9 +49,11 @@ public class Projectile : MonoBehaviour
             }
 
             Vector3 direction = (_lastTargetPosition - transform.position).normalized;
-            rigidBody.MovePosition(transform.position + (direction * (_maskInfo.projectileSpeed * Time.fixedDeltaTime)));
+            Vector3 startPosition = transform.position;
+            Vector3 endPosition = startPosition + (direction * (_maskInfo.projectileSpeed * Time.fixedDeltaTime));
+            rigidBody.MovePosition(endPosition);
 
-            if (Vector3.Distance(transform.position, _lastTargetPosition) < 0.1f)
+            if (Vector3.Distance(transform.position, _lastTargetPosition) < 0.1f || Utils.IsPointBetween(startPosition, endPosition, _lastTargetPosition))
             {
                 BounceOrDestroy();
             }

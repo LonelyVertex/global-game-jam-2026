@@ -42,4 +42,12 @@ public static class Utils
     {
         return new Vector3(target.x, y, target.z);
     }
+
+    public static bool IsPointBetween(Vector3 start, Vector3 end, Vector3 target)
+    {
+        float d1 = Vector3.Distance(start, target);
+        float d2 = Vector3.Distance(target, end);
+        float lineLen = Vector3.Distance(start, end);
+        return Mathf.Approximately(d1 + d2, lineLen);
+    }
 }
