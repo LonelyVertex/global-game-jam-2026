@@ -434,6 +434,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d17124da87864d519b58b5cf3f3d731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaskSelectionPanel
+--- !u!114 &473322774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2251566457646635551, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+  m_PrefabInstance: {fileID: 473322772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a74cd66177e4044853d18c19d4152b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillSelectionPanel
 --- !u!1 &489978804
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   maskSelectionPanel: {fileID: 473322773}
-  skillSelectionPanel: {fileID: 0}
+  skillSelectionPanel: {fileID: 473322774}
   maskProjectileManagerPrefab: {fileID: 6049628441245653226, guid: 490ed3c218a05468faa745bcd51fb687, type: 3}
   levelGenerator: {fileID: 262467711}
   player: {fileID: 969173352}
