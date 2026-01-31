@@ -100,8 +100,13 @@ public class GameManager : MonoBehaviour
     {
         var playerTransform = PlayerStats.Instance.transform;
 
+        PlayerStats.Instance.EquipMask(maskInfo);
+
         var managerObject = Instantiate(maskProjectileManagerPrefab, playerTransform);
         managerObject.GetComponent<MaskProjectileManager>().SetMaskInfo(maskInfo);
+
+        MasksProvider.Instance.EquipMask(maskInfo);
+        PlayerMasksController.Instance.EquipMask(maskInfo);
 
         maskSelectionPanel.gameObject.SetActive(false);
         Time.timeScale = 1;

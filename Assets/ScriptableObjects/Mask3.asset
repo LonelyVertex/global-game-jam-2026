@@ -32,3 +32,5 @@ MonoBehaviour:
   splashRadius: 5
   splashDamageDelay: 0.1
   splashLifetime: 0.2
+  screenMaskPrefab: {fileID: 8488251627705849794, guid: a540872ac1354144abad5d0ed3acebd5, type: 3}
+  playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}

@@ -40,4 +40,7 @@ public class MaskInfo : ScriptableObject
     public float splashDamageDelay;
     public float splashLifetime;
 
+    [Header("Mask Visuals")]
+    public GameObject screenMaskPrefab;
+    public GameObject playerMaskPrefab;
 }
