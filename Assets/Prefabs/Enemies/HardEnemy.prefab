@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 959818360811566424, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658863086974434706, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ef986b5c1fba401ea71b4e4357c8a2a, type: 2}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_Name
       value: HardEnemy

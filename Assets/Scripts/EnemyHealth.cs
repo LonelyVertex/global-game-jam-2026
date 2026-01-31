@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private Renderer materialRenderer;
-    [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material damageMaterial;
     [SerializeField] private float damageEffectTime;
     [SerializeField] private float health = 100f;
@@ -14,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public float xp = 10f;
 
     private float _resetMaterialTime;
+    private Material originalMaterial;
 
     public void TakeDamage(int damage, bool isCritical)
     {
@@ -33,11 +33,16 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        originalMaterial = materialRenderer.sharedMaterial;
+    }
+
     private void Update()
     {
         if (_resetMaterialTime >= 0 && Time.time >= _resetMaterialTime)
         {
-            materialRenderer.material = defaultMaterial;
+            materialRenderer.material = originalMaterial;
             _resetMaterialTime = 0;
         }
     }
