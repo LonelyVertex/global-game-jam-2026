@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8583280995035074128}
   - component: {fileID: 8687265193561892631}
   - component: {fileID: 697140599450729498}
-  - component: {fileID: 8968971903810107814}
   - component: {fileID: 8639171344407879239}
+  - component: {fileID: 8968971903810107814}
   - component: {fileID: 959818360811566424}
+  - component: {fileID: 1984606911328019436}
+  - component: {fileID: 2292736942974076069}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -114,10 +116,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &697140599450729498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,22 +147,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8968971903810107814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029491610602271570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ec20d20c9014abcb6713c9707f0d87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  materialRenderer: {fileID: 8583280995035074128}
-  defaultMaterial: {fileID: 2100000, guid: 0175babc9526e48a187086e87c853564, type: 2}
-  damageMaterial: {fileID: 2100000, guid: 6b83c39efb70147e8be2d815b122ea8e, type: 2}
-  damageEffectTime: 0.1
 --- !u!136 &8639171344407879239
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -183,7 +169,23 @@ CapsuleCollider:
   m_Radius: 1
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8968971903810107814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029491610602271570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ec20d20c9014abcb6713c9707f0d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  materialRenderer: {fileID: 8583280995035074128}
+  defaultMaterial: {fileID: 2100000, guid: 0175babc9526e48a187086e87c853564, type: 2}
+  damageMaterial: {fileID: 2100000, guid: 6b83c39efb70147e8be2d815b122ea8e, type: 2}
+  damageEffectTime: 0.1
 --- !u!114 &959818360811566424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +198,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b885faa4ffffa41eaae06160735db76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWeaponController
+  damageCooldown: 1
+  damage: 10
+--- !u!195 &1984606911328019436
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029491610602271570}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2292736942974076069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029491610602271570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d33bb9ae090143fd8d328faa88fbd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovementController
+  agent: {fileID: 1984606911328019436}

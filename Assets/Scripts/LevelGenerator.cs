@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -22,18 +23,17 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int octaves = 4;
     [SerializeField] private float lacunarity = 2f;
     [SerializeField] private float persistence = 0.5f;
+    [SerializeField] private float clearStartRadius = 5f;
 
     private Vector2 _noiseOffset;
+    private RuntimeNavMesh _navMesh;
 
-    private void Start()
-    {
-        Generate();
-    }
-
-    public void Generate()
+    public IEnumerator Generate()
     {
         SpawnGround();
         SpawnObstacles();
+
+        yield return _navMesh.BuildNavMesh();
     }
 
     private void SpawnGround()
@@ -41,6 +41,7 @@ public class LevelGenerator : MonoBehaviour
         var ground = Instantiate(groundPrefab, Vector3.zero, Quaternion.identity);
 
         ground.transform.localScale = new Vector3((levelWidth / 10) + 0.1f, 1f, (levelHeight / 10) + 0.1f);
+        _navMesh = ground.GetComponent<RuntimeNavMesh>();
     }
 
     private void SpawnObstacles()
@@ -65,6 +66,12 @@ public class LevelGenerator : MonoBehaviour
             }
             else
             {
+                Vector3 pos = new(i - (levelWidth / 2f), 0, j - (levelHeight / 2f));
+
+                if (Vector3.Distance(pos, Vector3.zero) <= clearStartRadius)
+                {
+                    continue;
+                }
 
                 float x = (i + _noiseOffset.x) / noiseScale;
                 float y = (j + _noiseOffset.y) / noiseScale;
@@ -78,7 +85,6 @@ public class LevelGenerator : MonoBehaviour
                 {
                     if (n <= obstacle.threshold)
                     {
-                        Vector3 pos = new(i - (levelWidth / 2f), 0, j - (levelHeight / 2f));
                         Instantiate(obstacle.prefab, pos, Quaternion.identity);
                         break;
                     }
