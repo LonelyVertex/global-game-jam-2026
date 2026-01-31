@@ -753,9 +753,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveAction: {fileID: 1160112358}
+  dashAction: {fileID: 1050351809}
   rigidBody: {fileID: 969173358}
   moveSpeed: 5
   playerModel: {fileID: 2014602261}
+  dashDistance: 5
+  dashCooldown: 2
+  dashSpeed: 20
 --- !u!54 &969173358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,6 +787,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 1
+--- !u!114 &1050351809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Dash
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: bd11fa6d-7780-4bc8-85de-d399c6688f19
 --- !u!114 &1160112358
 MonoBehaviour:
   m_ObjectHideFlags: 0
