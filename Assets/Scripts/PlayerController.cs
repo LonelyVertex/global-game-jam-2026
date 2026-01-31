@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float lastDashTime = -Mathf.Infinity;
     private Vector3 dashTarget;
     private Vector3 dashStartPosition;
+    private LayerMask obstacleLayerMask;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +37,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             dashAction.action.Enable();
-        }      
+        }
+        obstacleLayerMask = LayerMask.GetMask("Obstacles");    
     }
 
     // Update is called once per frame
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         //use raycast to check new postion if there is anythong in the way
         RaycastHit hit;
-        if (!Physics.Raycast(rigidBody.position, (newPostition - rigidBody.position).normalized, out hit, Vector3.Distance(rigidBody.position, newPostition)))
+        if (!Physics.Raycast(rigidBody.position, (newPostition - rigidBody.position).normalized, out hit, Vector3.Distance(rigidBody.position, newPostition),obstacleLayerMask))
         {
             rigidBody.MovePosition(newPostition);
         } else {

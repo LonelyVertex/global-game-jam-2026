@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4434386322300542537}
   - component: {fileID: 840626408652571217}
   - component: {fileID: 2431158677028542151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5551079241803108366}
   - component: {fileID: 8536669752329805475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 2879738592686869481}
   - component: {fileID: 142363932539655744}
   - component: {fileID: 1957769340302061208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
