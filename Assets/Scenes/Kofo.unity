@@ -326,6 +326,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3867658091128718237, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867658091128718237, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7946006246754971418, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -793,6 +801,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1058455300409454668, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 399534680753426433}
     - target: {fileID: 1216138152141531662, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
       propertyPath: m_Name
       value: MasksRenderer
@@ -867,6 +879,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+--- !u!20 &399534680753426433 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+  m_PrefabInstance: {fileID: 399534680753426432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5042575844721376500
 PrefabInstance:
   m_ObjectHideFlags: 0
