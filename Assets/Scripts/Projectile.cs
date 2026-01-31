@@ -91,7 +91,7 @@ public class Projectile : MonoBehaviour
                 );
             }
 
-            SpawnHitEffect();
+            SpawnHitEffect(other.transform);
         }
 
         if (_maskInfo.projectileBounce > 0)
@@ -134,11 +134,12 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void SpawnHitEffect()
+    private void SpawnHitEffect(Transform hitTransform)
     {
         if (_maskInfo.splashPrefab != null)
         {
-            Instantiate(_maskInfo.splashPrefab, transform.position, Quaternion.identity);
+            var spawnPosition = Utils.Vector3XY(hitTransform ? hitTransform.position : transform.position, _maskInfo.splashPrefab.transform.position);
+            Instantiate(_maskInfo.splashPrefab, spawnPosition, Quaternion.identity);
         }
     }
 
