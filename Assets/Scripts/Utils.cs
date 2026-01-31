@@ -17,4 +17,8 @@ public static class Utils
 
     }
 
+    public static IEnumerable<T> Shuffle<T>(IEnumerable<T> source)
+    {
+        return source.OrderBy(_ => Random.value);
+    }
 }

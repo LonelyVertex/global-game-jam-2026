@@ -12,11 +12,11 @@ public class MaskInfo : ScriptableObject
     }
 
     public string maskName;
+    public string description;
 
     public int damage;
     public float range;
     public float cooldown;
-
     public ESpawnType spawnType;
 
     [Header("Projectile Settings")]

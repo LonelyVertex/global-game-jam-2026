@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
-  m_Name: Mask1
+  m_Name: Mask3
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Mask of Madness
-  description: This mask does a lot of things
+  maskName: Single Projectile Mask
+  description: This is also a mask.
   damage: 10
   range: 20
   cooldown: 1
   spawnType: 0
-  projectileManagerPrefab: {fileID: 0}
   projectilePrefab: {fileID: 6338615652339825452, guid: 457b810f4d697489fafe8d7ca8801351, type: 3}
   projectileSpawnRadius: 1
   projectileSpeed: 10
   projectileCount: 3
-  projectilePiercing: 1
+  projectilePiercing: 0
   projectileBounce: 2
   projectileBounceRange: 5
   projectileDestroyDelay: 0
-  orbitalSpeed: 0
-  splashPrefab: {fileID: 3239125948638543438, guid: 43e994c178e03479c895504acc55812a, type: 3}
+  orbitalSpeed: 20
+  splashPrefab: {fileID: 0}
   splashDamage: 20
   splashRadius: 5
   splashDamageDelay: 0.1
