@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Masks
   m_EditorClassIdentifier: Assembly-CSharp::MaskList
   masks:
-  - {fileID: 11400000, guid: d88f0275cbd3d40cba438ee3d1204b12, type: 2}
-  - {fileID: 11400000, guid: e87d2928affe04c2cb9b474d1c6339fd, type: 2}
-  - {fileID: 11400000, guid: bb5633152fe054af6beaef7fcc52de56, type: 2}
+  - {fileID: 11400000, guid: 55f6bf23f1e4b408295fcaf30bb22219, type: 2}
+  - {fileID: 11400000, guid: 74b12d75bc18543c49de3f9293f1d47b, type: 2}
+  - {fileID: 11400000, guid: 058ec18ba728e442383e9d03bbe6a43d, type: 2}
