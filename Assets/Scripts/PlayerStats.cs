@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float evasion = 0.1f;
     [SerializeField] private float attackSpeed = 5f;
 
-    private readonly Dictionary<MaskInfo, int> _equippedMasks = new();
+    public readonly Dictionary<MaskInfo, int> _equippedMasks = new();
 
     private void Awake()
     {

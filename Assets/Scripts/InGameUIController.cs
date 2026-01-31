@@ -8,10 +8,14 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthBarLabel;
     [SerializeField] private TextMeshProUGUI killsCounter;
     [SerializeField] private TextMeshProUGUI timeCounter;
+    [SerializeField] private GameObject masksGrid;
+    [SerializeField] private GameObject maskPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private int masksCount = -1;
     void Start()
     {
-        
+        masksCount = -1;
     }
 
     // Update is called once per frame
@@ -27,5 +31,29 @@ public class InGameUIController : MonoBehaviour
         int minutes = Mathf.FloorToInt(totalTime / 60F);
         int seconds = Mathf.FloorToInt(totalTime - minutes * 60);
         timeCounter.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        if (masksCount != PlayerStats.Instance._equippedMasks.Count)
+        {
+            UpdateMasksUI();
+            masksCount = PlayerStats.Instance._equippedMasks.Count;
+        }
+    }
+    private void UpdateMasksUI()
+    {
+        // Clear existing masks
+        foreach (Transform child in masksGrid.transform)
+        {
+            Debug.Log("Destroying mask UI element.");
+            Destroy(child.gameObject);
+        }
+
+        // Add current masks
+        foreach (var maskEntry in PlayerStats.Instance._equippedMasks)
+        {
+            Debug.Log("Creating mask UI element.");
+            GameObject maskUI = Instantiate(maskPrefab, masksGrid.transform);
+            //Image maskImage = maskUI.GetComponent<Image>();
+            //maskImage.sprite = maskEntry.Key.icon;
+        }
     }
 }
