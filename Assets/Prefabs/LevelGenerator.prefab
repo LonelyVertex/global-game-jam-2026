@@ -48,9 +48,35 @@ MonoBehaviour:
   wallPrefab: {fileID: 6132846109659829707, guid: 404df535b44944245a3b569e44fe0ca7, type: 3}
   obstacles:
   - threshold: 0.05
-    prefab: {fileID: 2558145932704055588, guid: 29a517ee0d9e849efa2c584ee1179c90, type: 3}
+    radius: 0.3
+    prefabs:
+    - {fileID: 2558145932704055588, guid: 29a517ee0d9e849efa2c584ee1179c90, type: 3}
   - threshold: 0.2
-    prefab: {fileID: 6132846109659829707, guid: 404df535b44944245a3b569e44fe0ca7, type: 3}
+    radius: 0.7
+    prefabs:
+    - {fileID: 706512091007864375, guid: 6c88c04312d307943bd8ccd84595fc0c, type: 3}
+    - {fileID: 7543116912713531769, guid: 800f6154f46d4f145ba5398b011d950f, type: 3}
+    - {fileID: 814600202303350846, guid: 9331d188e2ec14548a8a27ed920fe3df, type: 3}
+    - {fileID: 5276979320049544756, guid: e4748a2eafb1f54428527207b35c6dd1, type: 3}
+    - {fileID: 3925767117678820094, guid: f8fc0f97430ba3f42a18aa09f289e004, type: 3}
+    - {fileID: 7187874827902688091, guid: dc62bac531040204ead00b944ad9bd05, type: 3}
+    - {fileID: 4660419154532024230, guid: 27dbace4a89bde44ebf209f49d843055, type: 3}
+    - {fileID: 2530789308855514999, guid: 6075c59a63b9c894d9b48ef15379d8b6, type: 3}
+    - {fileID: 1686663175553181454, guid: 0caaef7ef7ce46b4896f9598880f8ecd, type: 3}
+    - {fileID: 2894546913182489958, guid: b700f06cc943e20488f9a753d50902c6, type: 3}
+    - {fileID: 9029516846674697260, guid: a663fb9b03253f14c8c5138b53556960, type: 3}
+    - {fileID: 5693517683953101834, guid: 8d07f5f694e970d4398d34482b0aca31, type: 3}
+    - {fileID: 6210969732738590995, guid: 55e5bceae53d2a14093a051fa20a5606, type: 3}
+    - {fileID: 18590715221060711, guid: e8d6b8e15654cc04793dfc417710b06f, type: 3}
+  - threshold: 0.1
+    radius: 2.5
+    prefabs:
+    - {fileID: 7781574485887964018, guid: 49a846be669e4894ebe0786045a8ae7c, type: 3}
+    - {fileID: 2909422699948896999, guid: 39c67c7d8d5d07f48b4472d07bfc5883, type: 3}
+    - {fileID: 7699845991332551514, guid: 1f38cbc06196dfc4d877f4dfcd4c9421, type: 3}
+    - {fileID: 5106922995089997510, guid: bddc26087880d9547aff3aa6c2a55ab6, type: 3}
+    - {fileID: 7895648929852810138, guid: 3c3be59d45fc8904fa01ad06eb72f4cf, type: 3}
+    - {fileID: 7431535025366586506, guid: 5f191bc46af94dd44b685f20434044ee, type: 3}
   levelWidth: 100
   levelHeight: 100
   obstacleDensity: 2
@@ -58,4 +84,4 @@ MonoBehaviour:
   octaves: 4
   lacunarity: 2
   persistence: 0.5
-  spawnCutoff: 0.75
+  clearStartRadius: 5

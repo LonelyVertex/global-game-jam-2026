@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,7 +11,8 @@ public class LevelGenerator : MonoBehaviour
     public struct Obstacle
     {
         public float threshold;
-        public GameObject prefab;
+        public float radius;
+        public GameObject[] prefabs;
     }
 
     [SerializeField] private GameObject groundPrefab;
@@ -49,6 +51,8 @@ public class LevelGenerator : MonoBehaviour
         var sorted = obstacles.OrderBy(o => o.threshold).ToList();
         _noiseOffset = new Vector2(Random.Range(-10000f, 10000f), Random.Range(-10000f, 10000f));
 
+        var overlapList = new Collider[1];
+
         int cellsX = Mathf.CeilToInt(levelWidth / obstacleDensity);
         int cellsY = Mathf.CeilToInt(levelHeight / obstacleDensity);
 
@@ -83,11 +87,23 @@ public class LevelGenerator : MonoBehaviour
 
                 foreach (var obstacle in sorted)
                 {
-                    if (n <= obstacle.threshold)
+                    if (n > obstacle.threshold)
                     {
-                        Instantiate(obstacle.prefab, pos, Quaternion.identity);
-                        break;
+                        continue;
                     }
+
+                    if (obstacle.radius > 0.0f)
+                    {
+                        int hitCount = Physics.OverlapSphereNonAlloc(pos, obstacle.radius, overlapList);
+                        if (hitCount == 1)
+                        {
+                            continue;
+                        }
+                    }
+
+                    var prefab = obstacle.prefabs[Random.Range(0, obstacle.prefabs.Length)];
+                    Instantiate(prefab, pos, Quaternion.AngleAxis(Random.value * 360.0f, transform.up), transform);
+                    break;
                 }
             }
         }
