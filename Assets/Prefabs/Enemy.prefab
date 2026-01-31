@@ -189,6 +189,7 @@ MonoBehaviour:
   health: 100
   likelihoodToSpawnMask: 0.2
   maskPrefab: {fileID: 4359012730321492256, guid: c579fd17545034ae2b255b5240f59bb0, type: 3}
+  xp: 60
 --- !u!114 &959818360811566424
 MonoBehaviour:
   m_ObjectHideFlags: 0

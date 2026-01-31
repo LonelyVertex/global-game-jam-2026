@@ -1597,6 +1597,8 @@ MonoBehaviour:
   timeCounter: {fileID: 7383386514296415430}
   masksGrid: {fileID: 2294069557203889913}
   maskPrefab: {fileID: 6991430767862635464, guid: 14937376681b74e4e9ab7bc1f3ab3f2e, type: 3}
+  levelsCounter: {fileID: 6228326536365047234}
+  xpBarSlider: {fileID: 4801360800741443625}
 --- !u!1 &6688500303746026831
 GameObject:
   m_ObjectHideFlags: 0

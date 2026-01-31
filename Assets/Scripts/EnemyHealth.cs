@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     public float likelihoodToSpawnMask = 0.2f;
     public GameObject maskPrefab;
 
+    public float xp = 10f;
+
     private float _resetMaterialTime;
 
     public void TakeDamage(int damage, bool isCritical)
@@ -43,7 +45,10 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Enemy died.");
+        
         GameManager.Instance.totalKills += 1;
+        PlayerStats.Instance.AddXp(xp);
+
         if (Random.value < likelihoodToSpawnMask)
         {
             Instantiate(maskPrefab, Utils.Vector3XY(transform.position, maskPrefab.transform.position), Quaternion.identity);

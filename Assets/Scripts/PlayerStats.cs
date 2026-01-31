@@ -6,6 +6,9 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance { get; private set; }
     public float hitpoints = 100f;
     public int maxHitpoints = 100;
+    public float xp = 0;
+    public int currentLevel = 1;
+
     [SerializeField] private float hitpointsRegen = 1;
     [SerializeField] private float movementSpeed = 5f;
     [Range(0f, 1f)]
@@ -26,6 +29,13 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        hitpoints = maxHitpoints;
+        xp = 0;
+        currentLevel = 1;
     }
 
     void Update()
@@ -109,6 +119,42 @@ public class PlayerStats : MonoBehaviour
     public bool IsDead()
     {
         return hitpoints <= 0;
+    }
+
+    public void AddXp(float amount)
+    {
+        xp += amount;
+        var levelBasedOnCurrentXp = LevelFromTotalXp(Mathf.FloorToInt(xp));
+        if (currentLevel < levelBasedOnCurrentXp)
+        {
+            currentLevel = levelBasedOnCurrentXp;
+            Debug.Log($"Player leveled up to level {levelBasedOnCurrentXp}!");
+        }
+
+    }
+
+    public int TotalXpForLevel(int level, float A = 100f, float P = 2.0f)
+    {
+        level = Mathf.Max(level, 1);
+        float x = level - 1;
+        return Mathf.FloorToInt(A * Mathf.Pow(x, P));
+    }
+
+    // XP required to go FROM level -> level+1
+    public int XpToNextLevel(int level, float A = 100f, float P = 2.0f)
+    {
+        int cur = TotalXpForLevel(level, A, P);
+        int next = TotalXpForLevel(level + 1, A, P);
+        return next - cur;
+    }
+
+    // Given total XP, compute current level
+    public int LevelFromTotalXp(int totalXp, float A = 100f, float P = 2.0f)
+    {
+        totalXp = Mathf.Max(totalXp, 0);
+        // Invert: totalXp = A*(L-1)^P  =>  L = 1 + (totalXp/A)^(1/P)
+        float x = Mathf.Pow(totalXp / A, 1f / P);
+        return Mathf.FloorToInt(x) + 1;
     }
 
 }

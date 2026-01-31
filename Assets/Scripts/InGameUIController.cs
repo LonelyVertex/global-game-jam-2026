@@ -10,6 +10,8 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeCounter;
     [SerializeField] private GameObject masksGrid;
     [SerializeField] private GameObject maskPrefab;
+    [SerializeField] private TextMeshProUGUI levelsCounter;
+    [SerializeField] private Slider xpBarSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private int masksCount = -1;
@@ -37,6 +39,11 @@ public class InGameUIController : MonoBehaviour
             UpdateMasksUI();
             masksCount = PlayerStats.Instance._equippedMasks.Count;
         }
+        levelsCounter.text = PlayerStats.Instance.currentLevel.ToString();
+
+        var exNeededForPreviousLevel = PlayerStats.Instance.currentLevel > 1 ? PlayerStats.Instance.TotalXpForLevel(PlayerStats.Instance.currentLevel) : 0;
+        xpBarSlider.value = (PlayerStats.Instance.xp - exNeededForPreviousLevel) / PlayerStats.Instance.XpToNextLevel(PlayerStats.Instance.currentLevel);
+
     }
     private void UpdateMasksUI()
     {
