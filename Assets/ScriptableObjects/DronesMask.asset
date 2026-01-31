@@ -38,4 +38,4 @@ MonoBehaviour:
   screenMaskPrefab: {fileID: 7439914569369150380, guid: 8a716edafe1df434faad6ba46cb01522, type: 3}
   playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}
   shootSound: {fileID: 0}
-  splashSound: {fileID: 0}
+  splashSound: {fileID: 8300000, guid: 5846ef8db46d74eb98a6f02d87f0f7d7, type: 3}

@@ -779,6 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517532442}
   - component: {fileID: 517532443}
+  - component: {fileID: 517532444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -831,6 +832,18 @@ MonoBehaviour:
   maxSpawnAttempts: 30
   totalTime: 0
   totalKills: 0
+--- !u!114 &517532444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517532441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b991b0d73d40692488bebc3c4afdad6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeInOnLevelStart
 --- !u!1 &542146639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3220988485708760117, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
@@ -1614,7 +1627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
-  maskInfo: {fileID: 11400000, guid: 49b333450bfe54e08814b3e9589b0937, type: 2}
+  maskInfo: {fileID: 11400000, guid: 1242a838506434874bf5fe56e7230e5d, type: 2}
 --- !u!4 &1062971770
 Transform:
   m_ObjectHideFlags: 0
