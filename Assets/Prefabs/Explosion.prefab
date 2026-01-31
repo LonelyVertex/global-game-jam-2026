@@ -135,7 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35edf4d7794904d41b89991bb5ed25b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Splash
-  maskInfo: {fileID: 11400000, guid: d88f0275cbd3d40cba438ee3d1204b12, type: 2}
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  maskInfo: {fileID: 11400000, guid: e635d3419b8f74b568d94815804a4826, type: 2}

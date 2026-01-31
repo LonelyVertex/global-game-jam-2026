@@ -99,10 +99,16 @@ public class Projectile : MonoBehaviour
         if (enemyHealth != null && !_hits.Contains(other.gameObject))
         {
             _hits.Add(other.gameObject);
-            enemyHealth.TakeDamage(
-                PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
-                PlayerStats.Instance.IsCriticalHit()
-            );
+
+            var damage = PlayerStats.Instance.ScaleDamage(_maskInfo.damage);
+
+            if (damage > 0)
+            {
+                enemyHealth.TakeDamage(
+                    PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
+                    PlayerStats.Instance.IsCriticalHit()
+                );
+            }
 
             SpawnHitEffect();
         }
