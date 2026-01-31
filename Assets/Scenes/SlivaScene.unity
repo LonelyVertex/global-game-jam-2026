@@ -1609,7 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
-  maskInfo: {fileID: 11400000, guid: e635d3419b8f74b568d94815804a4826, type: 2}
+  maskInfo: {fileID: 11400000, guid: be5c773b72533450fb6d8b16078fcb34, type: 2}
 --- !u!4 &1062971770
 Transform:
   m_ObjectHideFlags: 0
