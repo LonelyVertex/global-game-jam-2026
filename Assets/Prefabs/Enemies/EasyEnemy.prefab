@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EasyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8195980038988240239, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a5d1b9d10802e4f0090fd07e7f087b55, type: 2}
     - target: {fileID: 8968971903810107814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: xp
       value: 10
