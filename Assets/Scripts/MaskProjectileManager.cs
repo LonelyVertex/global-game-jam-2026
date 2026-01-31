@@ -102,7 +102,8 @@ public class MaskProjectileManager : MonoBehaviour
     private void SpawnProjectilesMelee()
     {
         var spawnPosition = Utils.Vector3XY(transform.position, _maskInfo.projectilePrefab.transform.position);
-        var projectileObject = Instantiate(_maskInfo.projectilePrefab, spawnPosition, Quaternion.identity);
+        Quaternion rotation = Quaternion.LookRotation(_playerController.playerModel.forward);
+        var projectileObject = Instantiate(_maskInfo.projectilePrefab, spawnPosition, rotation);
         var projectile = projectileObject.GetComponent<Projectile>();
         projectile.SetMaskInfo(_maskInfo);
     }
