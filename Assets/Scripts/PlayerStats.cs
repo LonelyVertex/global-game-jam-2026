@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         // Regenerate hitpoints over time
-        if (hitpoints < maxHitpoints)
+        if (hitpoints < maxHitpoints && hitpoints > 0) 
         {
             Heal(Mathf.Clamp(hitpointsRegen * Time.deltaTime, 0, maxHitpoints));
         }
@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour
 
         if (effectiveDamage > 0)
         {
-            hitpoints -= effectiveDamage;
+            hitpoints = Mathf.Clamp(hitpoints - effectiveDamage, 0, maxHitpoints);
             Debug.Log($"Player took {effectiveDamage} damage. Remaining HP: {hitpoints}");
             if (hitpoints <= 0)
             {
@@ -91,7 +91,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Heal(float amount)
     {
-        hitpoints = Mathf.Clamp(hitpoints += amount, 0, maxHitpoints);
+        hitpoints = Mathf.Clamp(hitpoints + amount, 0, maxHitpoints);
     }
 
 }
