@@ -114,14 +114,16 @@ public class PlayerController : MonoBehaviour
     {
         //use raycast to check new postion if there is anythong in the way
         RaycastHit hit;
-        if (!Physics.Raycast(rigidBody.position, (newPostition - rigidBody.position).normalized, out hit, Vector3.Distance(rigidBody.position, newPostition),obstacleLayerMask))
+        var direction = (newPostition - rigidBody.position).normalized;
+        if (!Physics.Raycast(rigidBody.position, direction, out hit, Vector3.Distance(rigidBody.position, newPostition),obstacleLayerMask))
         {
             rigidBody.MovePosition(newPostition);
         } else {
-            var newTarget = new Vector3(hit.point.x, rigidBody.position.y, hit.point.z);
+            var updatedPostion = hit.point - direction * 0.5f; //move to just before the hit point
+            var newTarget = new Vector3(updatedPostion.x, rigidBody.position.y, updatedPostion.z);
             //move to hit point
             rigidBody.MovePosition(newTarget);
         }
-        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        rigidBody.linearVelocity = Vector3.zero;
     }
 }
