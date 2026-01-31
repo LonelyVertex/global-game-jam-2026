@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
-  m_Name: LaserMask
+  m_Name: ShotgunMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Laser Mask
+  maskName: Shotgun Mask
   description: 
   damage: 10
   range: 10
   cooldown: 2
-  spawnType: 0
-  projectilePrefab: {fileID: 3108319004652501782, guid: 12feffbdebb0946599a344e269b088f0, type: 3}
+  spawnType: 2
+  projectilePrefab: {fileID: 424256228166316317, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
   projectileSpawnRadius: 1
-  projectileSpeed: 30
-  projectileCount: 1
+  projectileSpeed: 100
+  projectileCount: 5
   projectilePiercing: 0
   projectileBounce: 0
   projectileBounceRange: 0
-  projectileDestroyDelay: 0
+  projectileDestroyDelay: 0.1
+  frontalSpreadAngle: 15
   orbitalSpeed: 0
   splashPrefab: {fileID: 0}
   splashDamage: 0

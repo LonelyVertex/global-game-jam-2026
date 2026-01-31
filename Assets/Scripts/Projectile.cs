@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private GameObject model;
 
     private MaskInfo _maskInfo;
     private Transform _targetTransform;
@@ -123,6 +124,12 @@ public class Projectile : MonoBehaviour
     private void DestroySelf()
     {
         _isBeingDestroyed = true;
+
+        if (model)
+        {
+            model.SetActive(false);
+        }
+
         Destroy(gameObject, _maskInfo.projectileDestroyDelay);
     }
 }

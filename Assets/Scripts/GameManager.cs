@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    public GameObject Player => player;
+
     private float _lastSpawn;
 
     private void Awake()

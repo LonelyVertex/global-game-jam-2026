@@ -30,6 +30,9 @@ public class MaskInfo : ScriptableObject
     public float projectileBounceRange;
     public float projectileDestroyDelay;
 
+    [Header("Frontal")]
+    public float frontalSpreadAngle;
+
     [Header("Orbital Settings")]
     public float orbitalSpeed;
 
