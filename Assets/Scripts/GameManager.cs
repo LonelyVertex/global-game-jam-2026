@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     private LayerMask obstacleMask;
     [SerializeField] private float spawnClearanceRadius = 0.3f;
     [SerializeField] private int maxSpawnAttempts = 30;
+    
+    [Header("Game State")]
+    public float totalTime = 0f;
+    public int totalKills = 0;
 
     public static GameManager Instance { get; private set; }
 
@@ -62,6 +66,8 @@ public class GameManager : MonoBehaviour
 
         player.SetActive(true);
         SpawnFirstMaskBox();
+        totalTime = 0f;
+        totalKills = 0;
     }
 
     private void SpawnFirstMaskBox()
@@ -82,6 +88,7 @@ public class GameManager : MonoBehaviour
             SpawnEnemy();
             _lastSpawn = Time.time;
         }
+        totalTime += Time.deltaTime;
     }
 
     private void SpawnEnemy()

@@ -40,6 +40,7 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Enemy died.");
+        GameManager.Instance.totalKills += 1;
         Destroy(gameObject);
     }
 }

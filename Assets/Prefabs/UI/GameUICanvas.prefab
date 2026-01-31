@@ -1531,6 +1531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   healthBarSlider: {fileID: 7508715039159044710}
   healthBarLabel: {fileID: 3685652639791718573}
+  killsCounter: {fileID: 3353556000330030933}
+  timeCounter: {fileID: 7383386514296415430}
 --- !u!1 &7234560088567099205
 GameObject:
   m_ObjectHideFlags: 0
