@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
         damage = isCritical ? 2 * damage : damage;
         Debug.Log($"Enemy took {damage}{criticalInfo} damage.");
 
+        WorldSpaceUIController.Instance.DamageNumber(transform.position, damage);
+
         materialRenderer.material = damageMaterial;
         _resetMaterialTime = Time.time + damageEffectTime;
         health = Mathf.Clamp(health - damage, 0, health);

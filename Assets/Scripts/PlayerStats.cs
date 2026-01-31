@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float evasion = 0.1f;
     [SerializeField] private float attackSpeed = 5f;
 
-    private Dictionary<MaskInfo, int> _equippedMasks = new();
+    private readonly Dictionary<MaskInfo, int> _equippedMasks = new();
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         // Regenerate hitpoints over time
-        if (hitpoints < maxHitpoints && !IsDead()) 
+        if (hitpoints < maxHitpoints && !IsDead())
         {
             Heal(Mathf.Clamp(hitpointsRegen * Time.deltaTime, 0, maxHitpoints));
         }

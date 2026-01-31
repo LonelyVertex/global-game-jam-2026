@@ -1,9 +1,11 @@
-using UnityEngine;  
+using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public InputActionReference moveAction;
     public InputActionReference dashAction;
     public Rigidbody rigidBody;
@@ -12,12 +14,24 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 2f;
     public float dashSpeed = 20f;
     private bool canDash = true;
-    private bool isDashing = false;
+    public bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
     private Vector3 dashTarget;
     private Vector3 dashStartPosition;
     private LayerMask obstacleLayerMask;
-    
+    public float currentDashCooldown;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             dashAction.action.Enable();
         }
-        obstacleLayerMask = LayerMask.GetMask("Obstacles");    
+        obstacleLayerMask = LayerMask.GetMask("Obstacles");
     }
 
     // Update is called once per frame
@@ -65,7 +79,6 @@ public class PlayerController : MonoBehaviour
             float dashProgress = (Time.time - lastDashTime) * dashSpeed / dashDistance;
             if (dashProgress >= 1f)
             {
-                dashProgress = 1f;
                 ResetDash();
             } else {
                 Vector3 newPosition = Vector3.Lerp(dashStartPosition, dashTarget, dashProgress);
@@ -74,7 +87,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update()
+    {
+        if (canDash && currentDashCooldown > 0.0f)
+        {
+            currentDashCooldown -= Time.deltaTime;
+        }
+
         if (dashAction != null && dashAction.action.enabled && rigidBody != null && dashAction.action.WasPressedThisFrame())
         {
             Dash();
@@ -84,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash()
     {
-        if (canDash && Time.time >= lastDashTime + dashCooldown)
+        if (canDash && currentDashCooldown <= 0.0f)
         {
             Vector3 dashDirection = playerModel.forward;
             isDashing = true;
@@ -106,8 +125,9 @@ public class PlayerController : MonoBehaviour
 
     private void ResetDash()
     {
-            isDashing = false;
-            canDash = true; 
+        isDashing = false;
+        canDash = true;
+        currentDashCooldown = dashCooldown;
     }
 
     private void Move(Vector3 newPostition)
