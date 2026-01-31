@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
             if (moveVector != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(moveVector, Vector3.up);
-                playerModel.rotation = Quaternion.RotateTowards(playerModel.rotation, toRotation, 720 * Time.fixedDeltaTime);
+                playerModel.rotation = Quaternion.Slerp(playerModel.rotation, toRotation, 15f * Time.fixedDeltaTime);
             }
         }
     }
