@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
-  m_Name: RailgunMask
+  m_Name: MeleeMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Railgun Mask
+  maskName: Melee Mask
   description: 
-  damage: 100
-  range: 20
-  cooldown: 3
-  spawnType: 1
-  projectilePrefab: {fileID: 3176413378498950323, guid: b2645da7f4df748d89a0f382166dd32f, type: 3}
-  projectileSpawnRadius: 1
+  damage: 50
+  range: 0
+  cooldown: 2
+  spawnType: 4
+  projectilePrefab: {fileID: 2196022983145798412, guid: 47b9b010e39414da79ff3eba6bbf359e, type: 3}
+  projectileSpawnRadius: 0
   projectileSpeed: 0
   projectileCount: 1
   projectilePiercing: 1
   projectileBounce: 0
   projectileBounceRange: 0
   projectileDamageDelay: 0
-  projectileDestroyDelay: 0
+  projectileDestroyDelay: 0.5
   frontalSpreadAngle: 0
   orbitalSpeed: 0
   splashPrefab: {fileID: 0}

@@ -25,6 +25,7 @@ MonoBehaviour:
   projectilePiercing: 0
   projectileBounce: 0
   projectileBounceRange: 0
+  projectileDamageDelay: 0
   projectileDestroyDelay: 0
   frontalSpreadAngle: 0
   orbitalSpeed: 0

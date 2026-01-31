@@ -9,6 +9,7 @@ public class MaskInfo : ScriptableObject
         direction = 1,
         frontal = 2,
         orbital = 3,
+        melee = 4,
     }
 
     public string maskName;
@@ -28,6 +29,7 @@ public class MaskInfo : ScriptableObject
     [Tooltip("Bounce only works with target spawn type")]
     public int projectileBounce;
     public float projectileBounceRange;
+    public float projectileDamageDelay;
     public float projectileDestroyDelay;
 
     [Header("Frontal")]

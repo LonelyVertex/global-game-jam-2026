@@ -68,6 +68,10 @@ public class MaskProjectileManager : MonoBehaviour
         {
             SpawnProjectilesFrontal();
         }
+        else if (_maskInfo.spawnType == MaskInfo.ESpawnType.melee)
+        {
+            SpawnProjectilesMelee();
+        }
         else
         {
             SpawnProjectilesTargetOrDirectional();
@@ -93,7 +97,14 @@ public class MaskProjectileManager : MonoBehaviour
             var projectile = projectileObject.GetComponent<Projectile>();
             projectile.SetMaskInfo(_maskInfo);
         }
+    }
 
+    private void SpawnProjectilesMelee()
+    {
+        var spawnPosition = Utils.Vector3XY(transform.position, _maskInfo.projectilePrefab.transform.position);
+        var projectileObject = Instantiate(_maskInfo.projectilePrefab, spawnPosition, Quaternion.identity);
+        var projectile = projectileObject.GetComponent<Projectile>();
+        projectile.SetMaskInfo(_maskInfo);
     }
 
     private void SpawnProjectilesTargetOrDirectional()
