@@ -43,12 +43,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (PlayerStats.Instance.IsDead()) return;
-        
+
         if (moveAction != null && moveAction.action.enabled && !isDashing)
         {
             Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
             Vector3 moveVector = new Vector3(moveInput.x, 0, moveInput.y);
-            rigidBody.MovePosition(rigidBody.position + moveVector * PlayerStats.Instance.MovementSpeed * Time.fixedDeltaTime);
+            Move(rigidBody.position + moveVector * PlayerStats.Instance.MovementSpeed * Time.fixedDeltaTime);
 
             //rotate player model to face movement direction
             if (moveVector != Vector3.zero)
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 ResetDash();
             } else {
                 Vector3 newPosition = Vector3.Lerp(dashStartPosition, dashTarget, dashProgress);
-                rigidBody.MovePosition(newPosition);
+                Move(newPosition);
             }
         }
     }
@@ -106,5 +106,20 @@ public class PlayerController : MonoBehaviour
     {
             isDashing = false;
             canDash = true; 
-    }   
+    }
+
+    private void Move(Vector3 newPostition)
+    {
+        //use raycast to check new postion if there is anythong in the way
+        RaycastHit hit;
+        if (!Physics.Raycast(rigidBody.position, (newPostition - rigidBody.position).normalized, out hit, Vector3.Distance(rigidBody.position, newPostition)))
+        {
+            rigidBody.MovePosition(newPostition);
+        } else {
+            var newTarget = new Vector3(hit.point.x, rigidBody.position.y, hit.point.z);
+            //move to hit point
+            rigidBody.MovePosition(newTarget);
+        }
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+    }
 }
