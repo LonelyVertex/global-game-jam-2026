@@ -21,4 +21,14 @@ public static class Utils
     {
         return source.OrderBy(_ => Random.value);
     }
+
+    public static Vector3 Vector3XY(Vector3 target, Vector3 ySource)
+    {
+        return new Vector3(target.x, ySource.y, target.z);
+    }
+
+    public static Vector3 Vector3XY(Vector3 target, float y)
+    {
+        return new Vector3(target.x, y, target.z);
+    }
 }
