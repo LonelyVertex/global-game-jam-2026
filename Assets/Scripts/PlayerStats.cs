@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -22,6 +22,7 @@ public class PlayerStats : MonoBehaviour
     public readonly List<MaskInfo> _equippedMasks = new();
 
     private float movementSpeedBonus = 0f;
+    private float regenerationBonus = 0f;
 
     private void Awake()
     {
@@ -179,7 +180,7 @@ public class PlayerStats : MonoBehaviour
 
     public float GetRegenerationValue()
     {
-        return ScalingFunction(1, hitpointsRegen);
+        return hitpointsRegen+ScalingFunction(1, regenerationBonus);
     }
 
     public float ScalingFunction(float K, float value)
@@ -201,7 +202,7 @@ public class PlayerStats : MonoBehaviour
                 evasion += skillInfo.value;
                 break;
             case SkillInfo.SkillType.regeneration:
-                hitpointsRegen += skillInfo.value;
+                regenerationBonus += skillInfo.value;
                 break;
             case SkillInfo.SkillType.attack_speed:
                 attackSpeed += skillInfo.value;
