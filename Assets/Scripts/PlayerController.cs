@@ -137,7 +137,9 @@ public class PlayerController : MonoBehaviour
         //use raycast to check new postion if there is anythong in the way
         RaycastHit hit;
         var direction = (newPostition - rigidBody.position).normalized;
-        if (!Physics.Raycast(rigidBody.position, direction, out hit, Vector3.Distance(rigidBody.position, newPostition),obstacleLayerMask))
+        //raycast Y coordiate has to be as low as possible to hit smallest obastacles
+        var rayOrigin = new Vector3(rigidBody.position.x, 0.001f, rigidBody.position.z);
+        if (!Physics.Raycast(rayOrigin, direction, out hit, Vector3.Distance(rigidBody.position, newPostition),obstacleLayerMask))
         {
             rigidBody.MovePosition(newPostition);
         } else {
