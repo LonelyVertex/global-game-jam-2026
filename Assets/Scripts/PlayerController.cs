@@ -63,8 +63,7 @@ public class PlayerController : MonoBehaviour
             if (dashProgress >= 1f)
             {
                 dashProgress = 1f;
-                isDashing = false;
-                canDash = true;
+                ResetDash();
             } else {
                 Vector3 newPosition = Vector3.Lerp(dashStartPosition, dashTarget, dashProgress);
                 rigidBody.MovePosition(newPosition);
@@ -93,4 +92,18 @@ public class PlayerController : MonoBehaviour
             dashStartPosition = rigidBody.position;
         }
     }
+
+    void OnCollisionEnter(Collision collision) {
+        //Check if collison hat tag Obstacle
+        if (collision.gameObject.CompareTag("Obstacle")) {
+            //Stop dashing
+            ResetDash();
+        }
+    }
+
+    private void ResetDash()
+    {
+            isDashing = false;
+            canDash = true; 
+    }   
 }
