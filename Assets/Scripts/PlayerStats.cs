@@ -172,7 +172,7 @@ public class PlayerStats : MonoBehaviour
         return ScalingFunction(1, movementSpeedBonus);
     }
 
-    public bool IsEvedaded()
+    public bool IsEvaded()
     {
         return Random.value < ScalingFunction(10f, evasion);
     }
