@@ -22,11 +22,12 @@ MonoBehaviour:
   projectileSpawnRadius: 10
   projectileSpeed: 0
   projectileCount: 5
-  projectilePiercing: 0
+  projectilePiercing: 1
   projectileBounce: 0
   projectileBounceRange: 0
   projectileDamageDelay: 0
   projectileDestroyDelay: 0
+  projectileLifetime: 0
   frontalSpreadAngle: 0
   orbitalSpeed: -30
   splashPrefab: {fileID: 0}
