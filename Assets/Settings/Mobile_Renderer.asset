@@ -67,6 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59004230fa481344fabb5f85e81353e9, type: 3}
   m_Name: CompositionRendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::CompositionRendererFeature
-  m_Active: 1
+  m_Active: 0
   settings:
     maskMaterial: {fileID: 2100000, guid: 10bb52bd159a4634397f68dc7516c881, type: 2}

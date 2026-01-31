@@ -87,7 +87,8 @@ public class CompositionRendererFeature : ScriptableRendererFeature
                 colorFormat = desc.graphicsFormat,
                 clearBuffer = false,
                 filterMode = FilterMode.Bilinear,
-                wrapMode = TextureWrapMode.Clamp
+                wrapMode = TextureWrapMode.Clamp,
+                msaaSamples = MSAASamples.None
             };
 
             var temp = renderGraph.CreateTexture(tempDesc);

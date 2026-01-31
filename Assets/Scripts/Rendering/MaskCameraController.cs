@@ -60,9 +60,8 @@ public class MaskCameraController : MonoBehaviour
         var maskCameraDescriptor = new RenderTextureDescriptor(_cameraWidth, _cameraHeight)
         {
             graphicsFormat = GraphicsFormat.R8G8B8A8_UNorm,
-            depthBufferBits = 24,
+            depthStencilFormat = GraphicsFormat.D16_UNorm,
             msaaSamples = 1,
-            sRGB = QualitySettings.activeColorSpace == ColorSpace.Linear,
         };
         maskCameraRT = new RenderTexture(maskCameraDescriptor)
         {
@@ -78,7 +77,8 @@ public class MaskCameraController : MonoBehaviour
             colorFormat: GraphicsFormat.R8G8B8A8_UNorm,
             filterMode: FilterMode.Bilinear,
             wrapMode: TextureWrapMode.Clamp,
-            name: "_MasksTexture"
+            name: "_MasksTexture",
+            msaaSamples: MSAASamples.None
         );
     }
 }
