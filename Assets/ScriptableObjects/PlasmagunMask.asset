@@ -27,6 +27,7 @@ MonoBehaviour:
   projectileBounceRange: 5
   projectileDamageDelay: 0
   projectileDestroyDelay: 0
+  projectileLifetime: 0
   frontalSpreadAngle: 0
   orbitalSpeed: 0
   splashPrefab: {fileID: 0}
@@ -36,3 +37,5 @@ MonoBehaviour:
   splashLifetime: 0
   screenMaskPrefab: {fileID: 7439914569369150380, guid: 8a716edafe1df434faad6ba46cb01522, type: 3}
   playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}
+  shootSound: {fileID: 8300000, guid: adb81c4ac794e4ab6ba39b12a70f1797, type: 3}
+  splashSound: {fileID: 0}
