@@ -162,23 +162,29 @@ public class PlayerStats : MonoBehaviour
         return Mathf.FloorToInt(x) + 1;
     }
 
-    public GetEffectiveArmor()
+    public float GetEffectiveArmor()
     {
-        float K = 1f; // tuning constant (bigger K = armor is weaker)
-        return armor / (armor + K);   // in [0, 1), if armor >= 0
+        return ScalingFunction(1, armor);
     }
 
-    public GetEffectiveMovementSpeedup()
+    public float GetEffectiveMovementSpeedup()
     {
-        float K = 1f;
-        return movementSpeed / (movementSpeed + K);
+        return ScalingFunction(1, movementSpeedBonus);
     }
 
-    public IsEvedaded()
+    public bool IsEvedaded()
     {
-        float K = 10f;
-        var calculated = evasion / (evasion + K);
-        return Random.value < calculated;
+        return Random.value < ScalingFunction(10f, evasion);
+    }
+
+    public float GetRegenerationValue()
+    {
+        return ScalingFunction(1, hitpointsRegen);
+    }
+
+    public float ScalingFunction(float K, float value)
+    {
+        return value / (value + K);
     }
 
     public void TakeSkill(SkillInfo skillInfo)
@@ -195,10 +201,10 @@ public class PlayerStats : MonoBehaviour
                 evasion += skillInfo.value;
                 break;
             case SkillInfo.SkillType.regeneration:
-                hitpointsRegen *= skillInfo.value;
+                hitpointsRegen += skillInfo.value;
                 break;
             case SkillInfo.SkillType.attack_speed:
-                attackSpeed *= skillInfo.value;
+                attackSpeed += skillInfo.value;
                 break;
             default:
                 Debug.LogWarning("Unknown skill type.");
