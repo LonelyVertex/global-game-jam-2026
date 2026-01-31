@@ -144,7 +144,7 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public int TotalXpForLevel(int level, float A = 100f, float P = 2.0f)
+    public int TotalXpForLevel(int level, float A = 100f, float P = 1.6f)
     {
         level = Mathf.Max(level, 1);
         float x = level - 1;
@@ -152,7 +152,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     // XP required to go FROM level -> level+1
-    public int XpToNextLevel(int level, float A = 100f, float P = 2.0f)
+    public int XpToNextLevel(int level, float A = 100f, float P = 1.6f)
     {
         int cur = TotalXpForLevel(level, A, P);
         int next = TotalXpForLevel(level + 1, A, P);
@@ -160,7 +160,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Given total XP, compute current level
-    public int LevelFromTotalXp(int totalXp, float A = 100f, float P = 2.0f)
+    public int LevelFromTotalXp(int totalXp, float A = 100f, float P = 1.6f)
     {
         totalXp = Mathf.Max(totalXp, 0);
         // Invert: totalXp = A*(L-1)^P  =>  L = 1 + (totalXp/A)^(1/P)
