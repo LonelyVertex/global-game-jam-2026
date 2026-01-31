@@ -64,21 +64,28 @@ public class MaskProjectileManager : MonoBehaviour
 
     private void SpawnProjectiles()
     {
+        bool spawned = false;
+
         if (_maskInfo.spawnType == MaskInfo.ESpawnType.frontal)
         {
-            SpawnProjectilesFrontal();
+            spawned = SpawnProjectilesFrontal();
         }
         else if (_maskInfo.spawnType == MaskInfo.ESpawnType.melee)
         {
-            SpawnProjectilesMelee();
+            spawned = SpawnProjectilesMelee();
         }
         else
         {
-            SpawnProjectilesTargetOrDirectional();
+            spawned = SpawnProjectilesTargetOrDirectional();
+        }
+
+        if (spawned && _maskInfo.shootSound)
+        {
+            SoundManager.Instance.PlaySound(_maskInfo.shootSound);
         }
     }
 
-    private void SpawnProjectilesFrontal()
+    private bool SpawnProjectilesFrontal()
     {
         int projectileCount = PlayerStats.Instance.ScaleProjectileCount(_maskInfo.projectileCount);
         float angleStep = _maskInfo.frontalSpreadAngle / (projectileCount - 1);
@@ -97,24 +104,32 @@ public class MaskProjectileManager : MonoBehaviour
             var projectile = projectileObject.GetComponent<Projectile>();
             projectile.SetMaskInfo(_maskInfo);
         }
+
+        return projectileCount > 0;
     }
 
-    private void SpawnProjectilesMelee()
+    private bool SpawnProjectilesMelee()
     {
         var spawnPosition = Utils.Vector3XY(transform.position, _maskInfo.projectilePrefab.transform.position);
         Quaternion rotation = Quaternion.LookRotation(_playerController.playerModel.forward);
         var projectileObject = Instantiate(_maskInfo.projectilePrefab, spawnPosition, rotation);
         var projectile = projectileObject.GetComponent<Projectile>();
         projectile.SetMaskInfo(_maskInfo);
+
+        return true;
     }
 
-    private void SpawnProjectilesTargetOrDirectional()
+    private bool SpawnProjectilesTargetOrDirectional()
     {
         int projectileCount = PlayerStats.Instance.ScaleProjectileCount(_maskInfo.projectileCount);
         var enemies = FindEnemiesInRange(projectileCount);
 
+        bool anyEnemies = false;
+
         foreach (var e in enemies)
         {
+            anyEnemies = true;
+
             var direction = (Utils.Vector3XY(e.position, transform.position) - transform.position).normalized;
             var spawnPoint = transform.position + (direction * _maskInfo.projectileSpawnRadius);
             var spawnPosition = Utils.Vector3XY(spawnPoint, _maskInfo.projectilePrefab.transform.position);
@@ -128,6 +143,8 @@ public class MaskProjectileManager : MonoBehaviour
                 projectile.SetTarget(e.transform);
             }
         }
+
+        return anyEnemies;
     }
 
     private IEnumerable<Transform> FindEnemiesInRange(int enemyCount)

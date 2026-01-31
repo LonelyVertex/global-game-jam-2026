@@ -49,4 +49,7 @@ public class MaskInfo : ScriptableObject
     [Header("Mask Visuals")]
     public GameObject screenMaskPrefab;
     public GameObject playerMaskPrefab;
+
+    [Header("Sound Effects")]
+    public AudioClip shootSound;
 }
