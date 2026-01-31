@@ -9,8 +9,6 @@ public class MasksProvider : MonoBehaviour
 
     public int Version { get; private set; } = 0;
 
-    private readonly Dictionary<MaskInfo, Transform> _masksProvider = new();
-
     private void Awake()
     {
         if (Instance == null)
@@ -25,10 +23,7 @@ public class MasksProvider : MonoBehaviour
 
     public void EquipMask(MaskInfo maskInfo)
     {
-        if (!_masksProvider.TryGetValue(maskInfo, out Transform maskObject))
-        {
-            maskObject = _masksProvider[maskInfo] = Instantiate(maskInfo.screenMaskPrefab, masksRoot).transform;
-        }
+        Instantiate(maskInfo.screenMaskPrefab, masksRoot);
 
         MarkDirty();
     }
