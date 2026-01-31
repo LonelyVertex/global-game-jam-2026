@@ -14,6 +14,11 @@ public class Splash : MonoBehaviour
     {
         Invoke(nameof(DealDamage), maskInfo.splashDamageDelay);
         Destroy(gameObject, maskInfo.splashLifetime);
+
+        if (maskInfo.splashSound != null)
+        {
+            SoundManager.Instance.PlaySound(maskInfo.splashSound);
+        }
     }
 
     private void DealDamage()

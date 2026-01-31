@@ -52,4 +52,5 @@ public class MaskInfo : ScriptableObject
 
     [Header("Sound Effects")]
     public AudioClip shootSound;
+    public AudioClip splashSound;
 }
