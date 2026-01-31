@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -300,6 +301,19 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2471472f104448346ac34fcb7b4ccc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaskTextureProvider
+  maskCameraController: {fileID: 1885101636}
 --- !u!1001 &403820262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,10 +692,11 @@ Transform:
   m_GameObject: {fileID: 674748018}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.033, y: 0.56999993, z: 0.567}
-  m_LocalScale: {x: 0.8, y: 0.1, z: 0.5}
+  m_LocalPosition: {x: 0.033, y: 0.56999993, z: 0.375}
+  m_LocalScale: {x: 0.8, y: 0.2, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1935160676}
   m_Father: {fileID: 2014602261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &674748020
@@ -872,6 +887,7 @@ GameObject:
   - component: {fileID: 969173357}
   - component: {fileID: 969173358}
   - component: {fileID: 969173359}
+  - component: {fileID: 969173360}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1040,6 +1056,20 @@ MonoBehaviour:
   armor: 0.1
   evasion: 0.1
   attackSpeed: 5
+--- !u!114 &969173360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969173352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa03cf6c867e7cc4abb39c568db2d3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMasksController
+  masksRoot: {fileID: 1935160676}
+  maskPlacementIncrement: 0.1
 --- !u!114 &1050351809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,6 +1339,105 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596424686}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1885101635
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1396
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.26259
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.48012
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52157373291174440, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216138152141531662, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+      propertyPath: m_Name
+      value: MasksRenderer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+--- !u!114 &1885101636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6898790349250125542, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+  m_PrefabInstance: {fileID: 1885101635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5982d3cdb74ed474eaa9a18a4dcbb7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaskCameraController
+--- !u!1 &1935160675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935160676}
+  m_Layer: 0
+  m_Name: FaceMaskRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935160676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935160675}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 674748019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014602260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,3 +1484,4 @@ SceneRoots:
   - {fileID: 473322772}
   - {fileID: 1337000191}
   - {fileID: 403820262}
+  - {fileID: 1885101635}
