@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4959772820581005424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stone02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 3872461274915140451}
   - component: {fileID: 4090955301474100709}
   - component: {fileID: 6693606998287302936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: stone_07.001
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: b26f539eab80a2c4ea9765533245c6a3, type: 3}
+  - {fileID: 2100000, guid: 12b366dc89045cd488d9f00ba56bdb92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

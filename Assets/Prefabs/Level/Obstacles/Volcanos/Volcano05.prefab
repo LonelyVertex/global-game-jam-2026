@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7916447796989807722}
   - component: {fileID: 8680261585829111341}
   - component: {fileID: 1728674841757384981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: volcano_05
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6169928904958728636}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 1.53, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 7097365e10d023f40940fd097cbec5b7, type: 3}
+  - {fileID: 2100000, guid: de0e232b4ae82a2479dabde7bd2102e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4134595063981552733}
   - component: {fileID: 7447095830320987224}
   - component: {fileID: 3999600711037400022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: volcano_05b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 6410928502996243965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00010020971, y: 0.0006623149, z: -0.9}
+  m_LocalPosition: {x: 0, y: 0, z: -0.09}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 7097365e10d023f40940fd097cbec5b7, type: 3}
+  - {fileID: 2100000, guid: 1ef5ba752d90e4d44b1963ab179d7fac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,9 +213,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743179099430823558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Volcano05
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

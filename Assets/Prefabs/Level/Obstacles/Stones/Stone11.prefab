@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5641392488535918220}
   - component: {fileID: 6197307079798157533}
   - component: {fileID: 4109839035219435968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.003
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1184570031935116178}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 249.1022, y: 249.10217, z: 249.10217}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,9 +122,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5270180303630422701}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stone11
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

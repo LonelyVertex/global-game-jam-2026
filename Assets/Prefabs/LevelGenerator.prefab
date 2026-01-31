@@ -51,8 +51,14 @@ MonoBehaviour:
     radius: 0.3
     prefabs:
     - {fileID: 2558145932704055588, guid: 29a517ee0d9e849efa2c584ee1179c90, type: 3}
-  - threshold: 0.2
-    radius: 0.7
+    randomizeColors: 0
+    colorA: {r: 0, g: 0, b: 0, a: 0}
+    colorB: {r: 0, g: 0, b: 0, a: 0}
+    randomizeScale: 0
+    scaleA: 0
+    scaleB: 0
+  - threshold: 0.1
+    radius: 0.15
     prefabs:
     - {fileID: 706512091007864375, guid: 6c88c04312d307943bd8ccd84595fc0c, type: 3}
     - {fileID: 7543116912713531769, guid: 800f6154f46d4f145ba5398b011d950f, type: 3}
@@ -68,6 +74,12 @@ MonoBehaviour:
     - {fileID: 5693517683953101834, guid: 8d07f5f694e970d4398d34482b0aca31, type: 3}
     - {fileID: 6210969732738590995, guid: 55e5bceae53d2a14093a051fa20a5606, type: 3}
     - {fileID: 18590715221060711, guid: e8d6b8e15654cc04793dfc417710b06f, type: 3}
+    randomizeColors: 1
+    colorA: {r: 0.47843137, g: 0.07450796, b: 0.0078431275, a: 1}
+    colorB: {r: 0.2603773, g: 0.12340686, b: 0.027020255, a: 1}
+    randomizeScale: 1
+    scaleA: 0.8
+    scaleB: 0.4
   - threshold: 0.1
     radius: 2.5
     prefabs:
@@ -77,6 +89,12 @@ MonoBehaviour:
     - {fileID: 5106922995089997510, guid: bddc26087880d9547aff3aa6c2a55ab6, type: 3}
     - {fileID: 7895648929852810138, guid: 3c3be59d45fc8904fa01ad06eb72f4cf, type: 3}
     - {fileID: 7431535025366586506, guid: 5f191bc46af94dd44b685f20434044ee, type: 3}
+    randomizeColors: 0
+    colorA: {r: 0, g: 0, b: 0, a: 0}
+    colorB: {r: 0, g: 0, b: 0, a: 0}
+    randomizeScale: 0
+    scaleA: 0
+    scaleB: 0
   levelWidth: 100
   levelHeight: 100
   obstacleDensity: 2

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,6 +12,12 @@ public class LevelGenerator : MonoBehaviour
         public float threshold;
         public float radius;
         public GameObject[] prefabs;
+        public bool randomizeColors;
+        public Color colorA;
+        public Color colorB;
+        public bool randomizeScale;
+        public float scaleA;
+        public float scaleB;
     }
 
     [SerializeField] private GameObject groundPrefab;
@@ -40,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnGround()
     {
-        var ground = Instantiate(groundPrefab, Vector3.zero, Quaternion.identity);
+        var ground = Instantiate(groundPrefab, Vector3.zero, Quaternion.identity, transform);
 
         ground.transform.localScale = new Vector3((levelWidth / 10) + 0.1f, 1f, (levelHeight / 10) + 0.1f);
         _navMesh = ground.GetComponent<RuntimeNavMesh>();
@@ -66,7 +71,7 @@ public class LevelGenerator : MonoBehaviour
             if (ix == 0 || iy == 0 || ix == cellsX - 1 || iy == cellsY - 1)
             {
                 Vector3 pos = new(i - (levelWidth / 2f), 0, j - (levelHeight / 2f));
-                Instantiate(wallPrefab, pos, Quaternion.identity);
+                Instantiate(wallPrefab, pos, Quaternion.identity, transform);
             }
             else
             {
@@ -101,8 +106,23 @@ public class LevelGenerator : MonoBehaviour
                         }
                     }
 
+                    pos += new Vector3(Random.value - 0.5f, 0.0f, Random.value - 0.5f) * 2.0f;
+
                     var prefab = obstacle.prefabs[Random.Range(0, obstacle.prefabs.Length)];
-                    Instantiate(prefab, pos, Quaternion.AngleAxis(Random.value * 360.0f, transform.up), transform);
+                    var go = Instantiate(prefab, pos, Quaternion.AngleAxis(Random.value * 360.0f, transform.up), transform);
+
+                    if (obstacle.randomizeScale)
+                    {
+                        float s = obstacle.scaleA + (Random.value * obstacle.scaleB);
+                        go.transform.localScale = new Vector3(s, s, s);
+                    }
+
+                    if (obstacle.randomizeColors)
+                    {
+                        var meshRenderer = go.GetComponentInChildren<MeshRenderer>();
+                        meshRenderer.material.color = Color.Lerp(obstacle.colorA,  obstacle.colorB, Random.value);
+                    }
+
                     break;
                 }
             }
