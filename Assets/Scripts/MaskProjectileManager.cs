@@ -163,6 +163,10 @@ public class MaskProjectileManager : MonoBehaviour
 
             var projectileObject = Instantiate(_maskInfo.projectilePrefab, transform);
             projectileObject.transform.position = spawnPosition;
+
+            var projectile = projectileObject.GetComponent<Projectile>();
+            projectile.SetMaskInfo(_maskInfo);
+
             _orbitingProjectiles.Add(projectileObject.transform);
         }
     }

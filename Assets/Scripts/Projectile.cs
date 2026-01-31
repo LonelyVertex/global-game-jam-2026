@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
                 BounceOrDestroy();
             }
         }
-        else
+        else if (_maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
         {
             var previousPosition = transform.position;
             var nextPosition = transform.position +
@@ -85,7 +85,6 @@ public class Projectile : MonoBehaviour
 
             if (damage > 0)
             {
-                Debug.Log($"Enemy taking damage {damage} from {gameObject.name}");
                 enemyHealth.TakeDamage(
                     PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
                     PlayerStats.Instance.IsCriticalHit()
