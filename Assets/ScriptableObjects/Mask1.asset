@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: Mask1
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Single Projectile Mask
-  projectilePrefab: {fileID: 6338615652339825452, guid: 457b810f4d697489fafe8d7ca8801351, type: 3}
-  projectileTargeted: 1
-  projectileSpawnRadius: 1
   damage: 10
   range: 20
   cooldown: 1
+  spawnType: 0
+  projectilePrefab: {fileID: 6338615652339825452, guid: 457b810f4d697489fafe8d7ca8801351, type: 3}
+  projectileSpawnRadius: 1
+  projectileSpeed: 10
   projectileCount: 3
+  projectilePiercing: 0
+  projectileBounce: 2
+  projectileBounceRange: 5
+  orbitalSpeed: 20
+  splashPrefab: {fileID: 0}
+  splashDamage: 20
+  splashRadius: 5
+  splashDamageDelay: 0.1
+  splashLifetime: 0.2

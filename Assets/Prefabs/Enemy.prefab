@@ -155,3 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ec20d20c9014abcb6713c9707f0d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  materialRenderer: {fileID: 8583280995035074128}
+  defaultMaterial: {fileID: 2100000, guid: 0175babc9526e48a187086e87c853564, type: 2}
+  damageMaterial: {fileID: 2100000, guid: 6b83c39efb70147e8be2d815b122ea8e, type: 2}
+  damageEffectTime: 0.1
