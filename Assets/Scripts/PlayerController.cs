@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -119,7 +118,10 @@ public class PlayerController : MonoBehaviour
         //Check if collison hat tag Obstacle
         if (collision.gameObject.CompareTag("Obstacle")) {
             //Stop dashing
-            ResetDash();
+            if (isDashing)
+            {
+                ResetDash();
+            }
         }
     }
 
