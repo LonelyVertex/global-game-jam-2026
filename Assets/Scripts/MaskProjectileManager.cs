@@ -26,6 +26,7 @@ public class MaskProjectileManager : MonoBehaviour
     private void Update()
     {
         if (!_maskInfo) return;
+        if (PlayerStats.Instance.IsDead()) return;
 
         if (_maskInfo.spawnType == MaskInfo.ESpawnType.orbital)
         {

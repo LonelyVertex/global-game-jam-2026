@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         // Regenerate hitpoints over time
-        if (hitpoints < maxHitpoints && hitpoints > 0) 
+        if (hitpoints < maxHitpoints && !IsDead()) 
         {
             Heal(Mathf.Clamp(hitpointsRegen * Time.deltaTime, 0, maxHitpoints));
         }
@@ -63,6 +63,10 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (IsDead())
+        {
+            return;
+        }
         //apply evasion
         if (Random.value < evasion)
         {
@@ -92,6 +96,11 @@ public class PlayerStats : MonoBehaviour
     public void Heal(float amount)
     {
         hitpoints = Mathf.Clamp(hitpoints + amount, 0, maxHitpoints);
+    }
+
+    public bool IsDead()
+    {
+        return hitpoints <= 0;
     }
 
 }

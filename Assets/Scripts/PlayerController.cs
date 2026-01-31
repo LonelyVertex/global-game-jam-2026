@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (PlayerStats.Instance.IsDead()) return;
+        
         if (moveAction != null && moveAction.action.enabled && !isDashing)
         {
             Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
