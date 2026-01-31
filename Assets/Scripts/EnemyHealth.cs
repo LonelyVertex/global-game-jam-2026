@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material damageMaterial;
     [SerializeField] private float damageEffectTime;
+    [SerializeField] private float health = 100f;
 
     private float _resetMaterialTime;
 
@@ -18,6 +19,11 @@ public class EnemyHealth : MonoBehaviour
 
         materialRenderer.material = damageMaterial;
         _resetMaterialTime = Time.time + damageEffectTime;
+        health = Mathf.Clamp(health - damage, 0, health);
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     private void Update()
@@ -27,5 +33,11 @@ public class EnemyHealth : MonoBehaviour
             materialRenderer.material = defaultMaterial;
             _resetMaterialTime = 0;
         }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy died.");
+        Destroy(gameObject);
     }
 }

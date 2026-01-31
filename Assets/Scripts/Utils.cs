@@ -7,7 +7,8 @@ public static class Utils
     public static IEnumerable<Transform> FindEnemiesInRange(Vector3 position, float range)
     {
         return Physics.OverlapSphere(position, range, LayerMask.GetMask("Enemy"))
-            .Select(collider => collider.transform);
+            .Select(collider => collider.transform)
+            .Distinct();
     }
 
     public static IEnumerable<Transform> FindEnemiesInRangeSorted(Vector3 position, float range)

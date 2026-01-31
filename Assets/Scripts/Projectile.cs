@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
         _targetTransform = targetTransform;
         _lastTargetPosition = _targetTransform.position;
     }
+    private readonly HashSet<GameObject> hits = new HashSet<GameObject>();
 
     private void FixedUpdate()
     {
@@ -87,8 +88,9 @@ public class Projectile : MonoBehaviour
         if (!other.CompareTag("Enemy")) return;
 
         var enemyHealth = other.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
+        if (enemyHealth != null && !hits.Contains(other.gameObject))
         {
+            hits.Add(other.gameObject);
             enemyHealth.TakeDamage(
                 PlayerStats.Instance.ScaleDamage(maskInfo.damage),
                 PlayerStats.Instance.IsCriticalHit()
