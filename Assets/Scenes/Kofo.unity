@@ -481,7 +481,7 @@ MonoBehaviour:
   player: {fileID: 969173352}
   enemyPrefab: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
   spawnRadius: 20
-  spawnInterval: 5
+  spawnInterval: 1
   maskBoxPrefab: {fileID: 3145572443098379115, guid: c579fd17545034ae2b255b5240f59bb0, type: 3}
   firstMaskRadius: 3
   obstacleMask:
