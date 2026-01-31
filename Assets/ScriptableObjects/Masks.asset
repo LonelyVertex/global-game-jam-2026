@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskList
   masks:
   - {fileID: 11400000, guid: be5c773b72533450fb6d8b16078fcb34, type: 2}
+  - {fileID: 11400000, guid: 49b333450bfe54e08814b3e9589b0937, type: 2}
   - {fileID: 11400000, guid: 1242a838506434874bf5fe56e7230e5d, type: 2}
   - {fileID: 11400000, guid: 77bcda7121e154f99a4a2d89adf0f984, type: 2}
   - {fileID: 11400000, guid: 55f6bf23f1e4b408295fcaf30bb22219, type: 2}
