@@ -4,8 +4,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
-    [SerializeField] private float hitpoints = 100f;
-    [SerializeField] private int maxHitpoints = 100;
+    public float hitpoints = 100f;
+    public int maxHitpoints = 100;
     [SerializeField] private float hitpointsRegen = 1;
     [SerializeField] private float movementSpeed = 5f;
     [Range(0f, 1f)]

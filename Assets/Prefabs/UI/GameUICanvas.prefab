@@ -1485,6 +1485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8741086826411761933}
+  - component: {fileID: 1636780725976746138}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -1516,6 +1517,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1636780725976746138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323228694025466424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd018fff88e54e11a0e5f5f2c9d3f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  healthBarSlider: {fileID: 7508715039159044710}
+  healthBarLabel: {fileID: 3685652639791718573}
 --- !u!1 &7234560088567099205
 GameObject:
   m_ObjectHideFlags: 0
