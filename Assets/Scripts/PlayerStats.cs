@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float evasion = 0.1f;
     [SerializeField] private float attackSpeed = 5f;
 
-    public readonly Dictionary<MaskInfo, int> _equippedMasks = new();
+    public readonly List<MaskInfo> _equippedMasks = new();
 
     private void Awake()
     {
@@ -93,15 +93,7 @@ public class PlayerStats : MonoBehaviour
 
     public void EquipMask(MaskInfo maskInfo)
     {
-        if (!_equippedMasks.TryAdd(maskInfo, 1))
-        {
-            _equippedMasks[maskInfo]++;
-        }
-    }
-
-    public int GetMaskCount(MaskInfo maskInfo)
-    {
-        return _equippedMasks.GetValueOrDefault(maskInfo, 0);
+        _equippedMasks.Add(maskInfo);
     }
 
     private void Die()

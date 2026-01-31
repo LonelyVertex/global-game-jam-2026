@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -7,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Material damageMaterial;
     [SerializeField] private float damageEffectTime;
     [SerializeField] private float health = 100f;
+    public float likelihoodToSpawnMask = 0.2f;
+    public GameObject maskPrefab;
 
     private float _resetMaterialTime;
 
@@ -41,6 +44,10 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("Enemy died.");
         GameManager.Instance.totalKills += 1;
+        if (Random.value < likelihoodToSpawnMask)
+        {
+            Instantiate(maskPrefab, Utils.Vector3XY(transform.position, maskPrefab.transform.position), Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }
