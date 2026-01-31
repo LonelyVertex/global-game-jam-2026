@@ -1594,6 +1594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062971770}
   - component: {fileID: 1062971769}
+  - component: {fileID: 1062971771}
   m_Layer: 0
   m_Name: DebugMaskEquip
   m_TagString: Untagged
@@ -1613,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
-  maskInfo: {fileID: 11400000, guid: e635d3419b8f74b568d94815804a4826, type: 2}
+  maskInfo: {fileID: 11400000, guid: 1242a838506434874bf5fe56e7230e5d, type: 2}
 --- !u!4 &1062971770
 Transform:
   m_ObjectHideFlags: 0
@@ -1629,6 +1630,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1062971771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062971768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
+  maskInfo: {fileID: 11400000, guid: 642ac9de652ac47ecb44b46641a9eeec, type: 2}
 --- !u!1001 &1064284095
 PrefabInstance:
   m_ObjectHideFlags: 0

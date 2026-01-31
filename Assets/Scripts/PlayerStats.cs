@@ -68,6 +68,11 @@ public class PlayerStats : MonoBehaviour
         return originalCooldown / attackSpeed;
     }
 
+    public float ScaleOrbitalSpeed(float originalSpeed)
+    {
+        return originalSpeed * attackSpeed;
+    }
+
     public bool IsCriticalHit()
     {
         // TODO

@@ -29,7 +29,7 @@ MonoBehaviour:
   projectileDestroyDelay: 0
   projectileLifetime: 0
   frontalSpreadAngle: 0
-  orbitalSpeed: -30
+  orbitalSpeed: -75
   splashPrefab: {fileID: 0}
   splashDamage: 0
   splashRadius: 0

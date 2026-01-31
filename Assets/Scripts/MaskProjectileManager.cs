@@ -55,7 +55,8 @@ public class MaskProjectileManager : MonoBehaviour
         // Rotate around the player and follow
         foreach (var orbitingProjectile in _orbitingProjectiles)
         {
-            orbitingProjectile.RotateAround(transform.position, Vector3.up, _maskInfo.orbitalSpeed * Time.deltaTime);
+            var orbitalSpeed = PlayerStats.Instance.ScaleOrbitalSpeed(_maskInfo.orbitalSpeed);
+            orbitingProjectile.RotateAround(transform.position, Vector3.up, orbitalSpeed * Time.deltaTime);
         }
     }
 
