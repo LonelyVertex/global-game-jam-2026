@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
+  m_Name: EnergygunMask
+  m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
+  maskName: Energygun Mask
+  description: 
+  damage: 20
+  range: 10
+  cooldown: 2
+  spawnType: 0
+  projectilePrefab: {fileID: 5023604767370726077, guid: d07d3a3d330664e09a831279066eac21, type: 3}
+  projectileSpawnRadius: 1
+  projectileSpeed: 30
+  projectileCount: 8
+  projectilePiercing: 0
+  projectileBounce: 0
+  projectileBounceRange: 0
+  projectileDamageDelay: 0
+  projectileDestroyDelay: 0.3
+  frontalSpreadAngle: 0
+  orbitalSpeed: 0
+  splashPrefab: {fileID: 0}
+  splashDamage: 0
+  splashRadius: 0
+  splashDamageDelay: 0
+  splashLifetime: 0
+  screenMaskPrefab: {fileID: 7439914569369150380, guid: 8a716edafe1df434faad6ba46cb01522, type: 3}
+  playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}
