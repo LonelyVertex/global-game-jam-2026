@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public InputActionReference moveAction;
     public Rigidbody rigidBody;
     public float moveSpeed = 5f;
+    public Transform playerModel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +29,14 @@ public class PlayerController : MonoBehaviour
             Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
             Vector3 moveVector = new Vector3(moveInput.x, 0, moveInput.y);
             rigidBody.MovePosition(rigidBody.position + moveVector * moveSpeed * Time.fixedDeltaTime);
+
+            //rotate player model to face movement direction
+            if (moveVector != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(moveVector, Vector3.up);
+                playerModel.rotation = Quaternion.RotateTowards(playerModel.rotation, toRotation, 720 * Time.fixedDeltaTime);
+            }
         }
     }
+
 }
