@@ -14,7 +14,7 @@ public class MaskOptionPanel : MonoBehaviour
     {
         _maskInfo = maskInfo;
 
-        maskNameText.text = maskInfo.name;
+        maskNameText.text = maskInfo.maskName;
         maskDescriptionText.text = maskInfo.description;
     }
 
