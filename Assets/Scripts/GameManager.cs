@@ -123,16 +123,28 @@ public class GameManager : MonoBehaviour
     private void SpawnMaskBoxes()
     {
         SpawnMaskBox(player.transform.position, firstMaskRadius);
-        SpawnMaskBox(player.transform.position, secondMaskRadius);
+
+        // If we fail to place the second box, try placing it in the clear start area
+        if (!SpawnMaskBox(player.transform.position, secondMaskRadius))
+        {
+            SpawnMaskBox(player.transform.position, firstMaskRadius);
+        }
     }
 
-    private void SpawnMaskBox(Vector3 spawnPos, float radius)
+    private bool SpawnMaskBox(Vector3 spawnPos, float radius)
     {
-        if (TryGetSpawnPositionOnCircle(spawnPos, radius, out var spawnPosition, 1000))
+        for (int i = 0; i < 5; i++)
         {
-            var spawnPositionAdjusted = Utils.Vector3XY(spawnPosition, maskBoxPrefab.transform.position);
-            Instantiate(maskBoxPrefab, spawnPositionAdjusted, Quaternion.identity);
+            if (TryGetSpawnPositionOnCircle(spawnPos, radius + i, out var spawnPosition, 100))
+            {
+                var spawnPositionAdjusted = Utils.Vector3XY(spawnPosition, maskBoxPrefab.transform.position);
+                Instantiate(maskBoxPrefab, spawnPositionAdjusted, Quaternion.identity);
+
+                return true;
+            }
         }
+
+        return false;
     }
 
     private void Update()
