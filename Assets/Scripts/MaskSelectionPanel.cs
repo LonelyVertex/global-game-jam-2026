@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MaskSelectionPanel : MonoBehaviour
 {
@@ -7,17 +8,21 @@ public class MaskSelectionPanel : MonoBehaviour
     [SerializeField] GameObject maskOptionsPrefab;
     [SerializeField] MaskList maskList;
 
+    [SerializeField] private InputActionReference[] slotInputs;
+
     public void GenerateOptions()
     {
         ClearOptions();
 
-        var options = Utils.Shuffle(maskList.masks).Take(3);
+        var options = Utils.Shuffle(maskList.masks).Take(3).ToList();
 
-        foreach (var maskInfo in options)
+        for (int i = 0; i < options.Count; i++)
         {
+            var maskInfo = options[i];
+
             var optionPanelObj = Instantiate(maskOptionsPrefab, maskOptionsParent);
             var optionPanel = optionPanelObj.GetComponent<MaskOptionPanel>();
-            optionPanel.SetMaskInfo(maskInfo);
+            optionPanel.SetMaskInfo(maskInfo, slotInputs[i].action);
         }
     }
 

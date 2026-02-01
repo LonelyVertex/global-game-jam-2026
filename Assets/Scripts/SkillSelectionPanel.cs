@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SkillSelectionPanel : MonoBehaviour
 {
@@ -7,17 +8,21 @@ public class SkillSelectionPanel : MonoBehaviour
     [SerializeField] GameObject optionsPrefab;
     [SerializeField] SkillsList list;
 
+    [SerializeField] private InputActionReference[] slotInputs;
+
     public void GenerateOptions()
     {
         ClearOptions();
 
-        var options = Utils.Shuffle(list.skills).Take(3);
+        var options = Utils.Shuffle(list.skills).Take(3).ToList();
 
-        foreach (var skillInfo in options)
+        for (int i = 0; i < options.Count; i++)
         {
+            var skillInfo = options[i];
+
             var optionPanelObj = Instantiate(optionsPrefab, optionsParent);
             var optionPanel = optionPanelObj.GetComponent<SkillOptionPanel>();
-            optionPanel.SetSkillInfo(skillInfo);
+            optionPanel.SetSkillInfo(skillInfo, slotInputs[i].action);
         }
     }
 

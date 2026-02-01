@@ -354,6 +354,10 @@ MonoBehaviour:
   maskOptionsParent: {fileID: 6820292932748555577}
   maskOptionsPrefab: {fileID: 1022382666891007517, guid: 8813a4b369aac4a2dbc5b538cfe0b5a2, type: 3}
   maskList: {fileID: 11400000, guid: e5f6e9339cbea4ffcb74cfbd2762f4d6, type: 2}
+  slotInputs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &957231139342811835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2239,10 @@ MonoBehaviour:
   optionsParent: {fileID: 7307069121156480619}
   optionsPrefab: {fileID: 1022382666891007517, guid: 23cfea75fade34eadbe66a1844c31148, type: 3}
   list: {fileID: 11400000, guid: cc2f55d8a94c64b2880a6c391b1f33fe, type: 2}
+  slotInputs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &9135696721977248804
 GameObject:
   m_ObjectHideFlags: 0

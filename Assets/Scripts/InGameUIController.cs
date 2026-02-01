@@ -50,17 +50,15 @@ public class InGameUIController : MonoBehaviour
         // Clear existing masks
         foreach (Transform child in masksGrid.transform)
         {
-            Debug.Log("Destroying mask UI element.");
             Destroy(child.gameObject);
         }
 
         // Add current masks
         foreach (var maskEntry in PlayerStats.Instance._equippedMasks)
         {
-            Debug.Log("Creating mask UI element.");
             GameObject maskUI = Instantiate(maskPrefab, masksGrid.transform);
-            //Image maskImage = maskUI.GetComponent<Image>();
-            //maskImage.sprite = maskEntry.Key.icon;
+            var maskImage = maskUI.GetComponent<MaskGridItem>();
+            maskImage.SetImage(maskEntry.icon);
         }
     }
 }

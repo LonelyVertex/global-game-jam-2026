@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8563972765116839044}
   - component: {fileID: 1957188087628847424}
   m_Layer: 31
-  m_Name: BlurredMask
+  m_Name: BaseMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
