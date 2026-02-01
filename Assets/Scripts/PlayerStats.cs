@@ -143,7 +143,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player has died.");
+        GameManager.Instance.ShowDeathScreen();
     }
 
     public void Heal(float amount)

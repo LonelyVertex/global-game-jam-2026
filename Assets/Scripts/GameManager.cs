@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class GameManager : MonoBehaviour
     public InputActionReference pauseAction;
     public GamePauseUIController gamePauseUIController;
 
+    [Header("Game Over")]
+    public GameOverUIController gameOverUIController;
+
     public static GameManager Instance { get; private set; }
 
     public GameObject Player => player;
@@ -73,29 +77,10 @@ public class GameManager : MonoBehaviour
         pauseAction.action.Enable();
         pauseAction.action.performed += HandlePauseActionPerformed;
         gamePauseUIController.OnFinishedEvent += HandleGamePauseOnFinished;
+        gameOverUIController.OnFinishedEvent += HandleGameOverOnFinished;
 
         inGameUIController.gameObject.SetActive(true);
-    }
 
-    private void HandlePauseActionPerformed(InputAction.CallbackContext obj)
-    {
-        Debug.Log(gamePauseUIController);
-
-        if (gamePauseUIController.isActiveAndEnabled)
-        {
-            HandleGamePauseOnFinished();
-            return;
-        }
-
-        Time.timeScale = 0;
-        gamePauseUIController.gameObject.SetActive(true);
-        inGameUIController.gameObject.SetActive(false);
-    }
-
-    private void HandleGamePauseOnFinished()
-    {
-        gamePauseUIController.gameObject.SetActive(false);
-        inGameUIController.gameObject.SetActive(true);
         Time.timeScale = 1;
     }
 
@@ -142,6 +127,18 @@ public class GameManager : MonoBehaviour
         var spawnPosition = TryGetSpawnPositionOnCircle(player.transform.position, spawnRadius, out var spawnPos);
         if (!spawnPosition) return;
         enemySpawner.SpawnEnemy(spawnPos, PlayerStats.Instance.currentLevel);
+    }
+
+    public void ShowDeathScreen()
+    {
+        Time.timeScale = 0;
+
+        maskSelectionPanel.gameObject.SetActive(false);
+        skillSelectionPanel.gameObject.SetActive(false);
+        inGameUIController.gameObject.SetActive(false);
+        gamePauseUIController.gameObject.SetActive(false);
+
+        gameOverUIController.gameObject.SetActive(true);
     }
 
     public void ShowMaskSelection()
@@ -266,5 +263,35 @@ public class GameManager : MonoBehaviour
     {
         Vector2 offset2D = Random.insideUnitCircle.normalized * radius;
         return center + new Vector3(offset2D.x, 0f, offset2D.y);
+    }
+
+    private void HandleGameOverOnFinished()
+    {
+        SceneManager.LoadScene("Scenes/Kofo");
+    }
+
+    private void HandlePauseActionPerformed(InputAction.CallbackContext obj)
+    {
+        if (gamePauseUIController.isActiveAndEnabled)
+        {
+            HandleGamePauseOnFinished();
+            return;
+        }
+
+        if (!inGameUIController.isActiveAndEnabled)
+        {
+            return;
+        }
+
+        Time.timeScale = 0;
+        gamePauseUIController.gameObject.SetActive(true);
+        inGameUIController.gameObject.SetActive(false);
+    }
+
+    private void HandleGamePauseOnFinished()
+    {
+        gamePauseUIController.gameObject.SetActive(false);
+        inGameUIController.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 }

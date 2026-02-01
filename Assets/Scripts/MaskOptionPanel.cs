@@ -9,7 +9,14 @@ public class MaskOptionPanel : MonoBehaviour
     [SerializeField] private Image maskImage;
     [SerializeField] private TMP_Text maskNameText;
     [SerializeField] private TMP_Text maskDescriptionText;
+    [SerializeField] private Image maskEquipModeGO;
     [SerializeField] private TMP_Text maskEquipModeText;
+    [SerializeField] private TMP_Text slotText;
+
+    [Space]
+    [SerializeField] private Color blueColor;
+    [SerializeField] private Color redColor;
+    [SerializeField] private Color purpleColor;
 
     private MaskInfo _maskInfo;
     private InputAction _inputAction;
@@ -25,7 +32,7 @@ public class MaskOptionPanel : MonoBehaviour
         _inputAction.performed -= HandleInputAction;
     }
 
-    public void SetMaskInfo(MaskInfo maskInfo, InputAction inputAction)
+    public void SetMaskInfo(int idx, MaskInfo maskInfo, InputAction inputAction)
     {
         _maskInfo = maskInfo;
         _inputAction = inputAction;
@@ -34,6 +41,7 @@ public class MaskOptionPanel : MonoBehaviour
         maskImage.sprite = maskInfo.icon;
         maskNameText.text = maskInfo.maskName;
         maskDescriptionText.text = maskInfo.description;
+        slotText.SetText(idx.ToString());
         SetMaskEquipModeText();
 
         _inputAction.Enable();
@@ -72,25 +80,29 @@ public class MaskOptionPanel : MonoBehaviour
 
     private void SetMaskEquipModeText()
     {
+        maskEquipModeGO.gameObject.SetActive(_maskEquipMode != EMaskEquipMode.newMask);
+
         switch (_maskEquipMode)
         {
-            case EMaskEquipMode.newMask:
-                maskEquipModeText.text = "new";
-                break;
             case EMaskEquipMode.damage:
-                maskEquipModeText.text = "+damage";
+                maskEquipModeText.text = "+ damage";
+                maskEquipModeGO.color = redColor;
                 break;
             case EMaskEquipMode.cooldown:
-                maskEquipModeText.text = "-cooldown";
+                maskEquipModeText.text = "- cooldown";
+                maskEquipModeGO.color = blueColor;
                 break;
             case EMaskEquipMode.projectileCount:
-                maskEquipModeText.text = "+projectile count";
+                maskEquipModeText.text = "+ projectile count";
+                maskEquipModeGO.color = purpleColor;
                 break;
             case EMaskEquipMode.projectileBounce:
-                maskEquipModeText.text = "+bounce";
+                maskEquipModeText.text = "+ bounce";
+                maskEquipModeGO.color = purpleColor;
                 break;
             case EMaskEquipMode.orbitalSpeed:
-                maskEquipModeText.text = "+orbital speed";
+                maskEquipModeText.text = "+ orbital speed";
+                maskEquipModeGO.color = purpleColor;
                 break;
         }
     }

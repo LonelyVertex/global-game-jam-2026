@@ -22,7 +22,7 @@ public class MaskSelectionPanel : MonoBehaviour
 
             var optionPanelObj = Instantiate(maskOptionsPrefab, maskOptionsParent);
             var optionPanel = optionPanelObj.GetComponent<MaskOptionPanel>();
-            optionPanel.SetMaskInfo(maskInfo, slotInputs[i].action);
+            optionPanel.SetMaskInfo(i + 1, maskInfo, slotInputs[i].action);
         }
     }
 
