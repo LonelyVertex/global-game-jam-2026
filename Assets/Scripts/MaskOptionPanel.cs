@@ -69,7 +69,7 @@ public class MaskOptionPanel : MonoBehaviour
             modes.Add(EMaskEquipMode.projectileCount);
         }
 
-        if (_maskInfo.spawnType == MaskInfo.ESpawnType.target)
+        if (_maskInfo.projectileBounce > 0)
         {
             modes.Add(EMaskEquipMode.projectileBounce);
         }
