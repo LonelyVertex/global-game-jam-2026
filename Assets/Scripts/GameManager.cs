@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player => player;
 
+    public int enemyCounter = 0;
+    public int maxEnemyCount = 100;
+
     private float _lastSpawn;
 
     private void Awake()
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
 
-        if (Time.time - _lastSpawn >= spawnInterval)
+        if (Time.time - _lastSpawn >= spawnInterval && enemyCounter <= maxEnemyCount)
         {
             SpawnEnemy();
             _lastSpawn = Time.time;

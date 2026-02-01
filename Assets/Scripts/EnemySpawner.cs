@@ -39,6 +39,9 @@ public class EnemySpawner : MonoBehaviour
         //Set Scaled damage
         var enemyAttack = newSpawn.GetComponent<EnemyWeaponController>();
         enemyAttack.damage = enemyDifficultyScaler.ScaleDamageWithLevel(enemyAttack.damage, PlayerStats.Instance.currentLevel, 1);
+
+        GameManager.Instance.enemyCounter++;
+
     }
 
     private GameObject PickEnemyPrefabByLevelAndWeight(int level)

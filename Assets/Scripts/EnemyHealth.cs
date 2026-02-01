@@ -52,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy died.");
         
         GameManager.Instance.totalKills += 1;
+        GameManager.Instance.enemyCounter--;
         PlayerStats.Instance.AddXp(xp);
 
         if (Random.value < likelihoodToSpawnMask)
