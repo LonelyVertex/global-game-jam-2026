@@ -47,7 +47,7 @@ public class LevelGenerator : MonoBehaviour
     {
         var ground = Instantiate(groundPrefab, Vector3.zero, Quaternion.identity, transform);
 
-        ground.transform.localScale = new Vector3((levelWidth / 10) + 0.1f, 1f, (levelHeight / 10) + 0.1f);
+        ground.transform.localScale = new Vector3((levelWidth / 10), 1f, (levelHeight / 10));
         _navMesh = ground.GetComponent<RuntimeNavMesh>();
     }
 

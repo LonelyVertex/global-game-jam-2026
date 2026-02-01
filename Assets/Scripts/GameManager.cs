@@ -31,8 +31,10 @@ public class GameManager : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField]
     private LayerMask obstacleMask;
+    [SerializeField] private LayerMask groundMask;
     [SerializeField] private float spawnClearanceRadius = 0.3f;
     [SerializeField] private int maxSpawnAttempts = 30;
+    [SerializeField] private float groundCheckDistance = 10f;
 
     [Header("Game State")]
     public float totalTime = 0f;
@@ -229,6 +231,19 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < maxSpawnAttempts; i++)
         {
             spawnPos = GetSpawnPositionOnCircle(center, radius);
+            
+            // Raycast to the ground from the spawn position, if no element in layer ground is hit, it's invalid
+            bool hasGround = Physics.Raycast(
+                spawnPos + Vector3.up * groundCheckDistance,
+                Vector3.down,
+                groundCheckDistance * 2f,
+                groundMask,
+                QueryTriggerInteraction.Ignore);
+            
+            if (!hasGround)
+            {
+                continue; // No ground found, try another position
+            }
 
             // if anything in obstacleMask overlaps our clearance sphere, it's invalid
             bool blocked = Physics.CheckSphere(
@@ -236,7 +251,7 @@ public class GameManager : MonoBehaviour
                 spawnClearanceRadius,
                 obstacleMask,
                 QueryTriggerInteraction.Ignore);
-
+            
             if (!blocked)
             {
                 return true;

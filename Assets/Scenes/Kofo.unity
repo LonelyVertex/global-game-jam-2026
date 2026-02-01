@@ -551,8 +551,12 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
   spawnClearanceRadius: 0.3
   maxSpawnAttempts: 30
+  groundCheckDistance: 10
   totalTime: 0
   totalKills: 0
   inGameUIController: {fileID: 473322776}
