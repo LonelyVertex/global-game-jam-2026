@@ -47,16 +47,6 @@ MonoBehaviour:
   groundPrefab: {fileID: 8119772016950032130, guid: 208f0038512ee47fdad5a164b8175573, type: 3}
   wallPrefab: {fileID: 6132846109659829707, guid: 404df535b44944245a3b569e44fe0ca7, type: 3}
   obstacles:
-  - threshold: 0.05
-    radius: 0.3
-    prefabs:
-    - {fileID: 2558145932704055588, guid: 29a517ee0d9e849efa2c584ee1179c90, type: 3}
-    randomizeColors: 0
-    colorA: {r: 0, g: 0, b: 0, a: 0}
-    colorB: {r: 0, g: 0, b: 0, a: 0}
-    randomizeScale: 0
-    scaleA: 0
-    scaleB: 0
   - threshold: 0.2
     radius: 0.15
     prefabs:
