@@ -573,7 +573,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  spawnClearanceRadius: 0.3
+  spawnClearanceRadius: 0.1
   maxSpawnAttempts: 30
   groundCheckDistance: 10
   totalTime: 0
