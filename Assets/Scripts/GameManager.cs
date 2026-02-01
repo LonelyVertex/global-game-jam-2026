@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,6 +72,24 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (pauseAction != null)
+        {
+            pauseAction.action.performed -= HandlePauseActionPerformed;
+        }
+
+        if (gamePauseUIController != null)
+        {
+            gamePauseUIController.OnFinishedEvent -= HandleGamePauseOnFinished;
+        }
+
+        if (gameOverUIController != null)
+        {
+            gameOverUIController.OnFinishedEvent -= HandleGameOverOnFinished;
         }
     }
 
