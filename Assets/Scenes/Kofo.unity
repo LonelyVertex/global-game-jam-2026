@@ -168,6 +168,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6674221451550794910, guid: 2bbf485457b944d2db373102809a65b3, type: 3}
+      propertyPath: levelWidth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674221451550794910, guid: 2bbf485457b944d2db373102809a65b3, type: 3}
+      propertyPath: levelHeight
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -558,7 +566,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 489978807}
   maskBoxPrefab: {fileID: 3145572443098379115, guid: c579fd17545034ae2b255b5240f59bb0, type: 3}
   firstMaskRadius: 3
-  secondMaskRadius: 40
+  secondMaskRadius: 20
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1205,16 +1213,20 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.20754719
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.20754719
+      value: 0.18161473
       objectReference: {fileID: 0}
     - target: {fileID: 4075640610441151322, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.20754719
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7554057894563051398, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_Name
