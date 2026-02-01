@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementSpeedSkill
   m_EditorClassIdentifier: Assembly-CSharp::SkillInfo
   skillName: Faster Movement
-  description: Makes you 20% faster
+  description: +20%
   value: 0.2
   type: 0
   icon: {fileID: 21300000, guid: 9fea90bf11ca2054196897cba7666468, type: 3}

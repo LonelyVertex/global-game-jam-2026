@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HitpointsSkill
   m_EditorClassIdentifier: Assembly-CSharp::SkillInfo
   skillName: Max Hitpoints
-  description: Incrased by 20
+  description: +20
   value: 20
   type: 5
   icon: {fileID: 21300000, guid: 7cb5826f5adcf5a4da373dffd65d6c13, type: 3}

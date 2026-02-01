@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageSkill
   m_EditorClassIdentifier: Assembly-CSharp::SkillInfo
   skillName: Damage Multiplier
-  description: Plus 20%
+  description: +20%
   value: 0.2
   type: 6
   icon: {fileID: 21300000, guid: 897d9760014f00e479aa08e89c029ac1, type: 3}

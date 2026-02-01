@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArmorSkill
   m_EditorClassIdentifier: Assembly-CSharp::SkillInfo
   skillName: Armor
-  description: Incrased by 20%
+  description: +20%
   value: 0.2
   type: 1
   icon: {fileID: 21300000, guid: bb307502a60d3b84b9e5eb9cb9b466a1, type: 3}
