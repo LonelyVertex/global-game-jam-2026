@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class GameManager : MonoBehaviour
     public float totalTime = 0f;
     public int totalKills = 0;
 
+    [Header("Pause")]
+    public InGameUIController inGameUIController;
+    public InputActionReference pauseAction;
+    public GamePauseUIController gamePauseUIController;
+
     public static GameManager Instance { get; private set; }
 
     public GameObject Player => player;
@@ -61,6 +67,34 @@ public class GameManager : MonoBehaviour
         {
             yield return StartGame();
         }
+
+        pauseAction.action.Enable();
+        pauseAction.action.performed += HandlePauseActionPerformed;
+        gamePauseUIController.OnFinishedEvent += HandleGamePauseOnFinished;
+
+        inGameUIController.gameObject.SetActive(true);
+    }
+
+    private void HandlePauseActionPerformed(InputAction.CallbackContext obj)
+    {
+        Debug.Log(gamePauseUIController);
+
+        if (gamePauseUIController.isActiveAndEnabled)
+        {
+            HandleGamePauseOnFinished();
+            return;
+        }
+
+        Time.timeScale = 0;
+        gamePauseUIController.gameObject.SetActive(true);
+        inGameUIController.gameObject.SetActive(false);
+    }
+
+    private void HandleGamePauseOnFinished()
+    {
+        gamePauseUIController.gameObject.SetActive(false);
+        inGameUIController.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 
     private IEnumerator StartGame()

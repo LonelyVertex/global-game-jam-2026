@@ -122,6 +122,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "730a2c1b-e379-430f-8b9f-5648fdb5ba96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -538,18 +547,18 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Slot1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "0cb168f8-6bc9-4162-b719-e579790866c2",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "f8251370-91ba-425c-85c0-f4eedd26cdf7",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Slot1",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -560,7 +569,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Slot2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -571,7 +580,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Slot2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -582,19 +591,41 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Slot3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f8251370-91ba-425c-85c0-f4eedd26cdf7",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "0cb168f8-6bc9-4162-b719-e579790866c2",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Slot3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2119337f-6f89-42c7-b939-86a0dba9faa9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c435367e-b38c-4874-9e48-afe5b4f355f3",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

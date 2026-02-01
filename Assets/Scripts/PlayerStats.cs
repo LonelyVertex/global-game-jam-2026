@@ -10,24 +10,24 @@ public class PlayerStats : MonoBehaviour
     public float xp = 0;
     public int currentLevel = 1;
 
-    [SerializeField] private float hitpointsRegen = 1;
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] public float hitpointsRegen = 1;
+    [SerializeField] public float movementSpeed = 5f;
     [Range(0f, 1f)]
-    [SerializeField] private float armor = 0f;
+    [SerializeField] public float armor = 0f;
     [Range(0f, 11f)]
-    [SerializeField] private float evasion = 0f;
-    [SerializeField] private float attackSpeed = 1f;
-    [SerializeField] private float difficultyScale = 100f;
-    [SerializeField] private float difficultyShape = 1.6f;
+    [SerializeField] public float evasion = 0f;
+    [SerializeField] public float attackSpeed = 1f;
+    [SerializeField] public float difficultyScale = 100f;
+    [SerializeField] public float difficultyShape = 1.6f;
 
     public readonly List<MaskInfo> _equippedMasks = new();
     public readonly Dictionary<MaskInfo, MaskProjectileManager> _maskManagers = new();
 
-    private float movementSpeedBonus = 0f;
-    private float regenerationBonus = 0f;
-    private float hitpointsBonus = 0f;
-    private float damageBonus = 0f;
-    private float damageScaler = 1f;
+    public float movementSpeedBonus = 0f;
+    public float regenerationBonus = 0f;
+    public float hitpointsBonus = 0f;
+    public float damageBonus = 0f;
+    public float damageScaler = 1f;
 
     private void Awake()
     {
