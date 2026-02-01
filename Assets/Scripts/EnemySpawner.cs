@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
         [Min(1)] public int minPlayerLevel = 1;   // eligible if playerLevel >= this
         [Min(0f)] public float weight = 1f;       // higher = more likely
         public float weightScaler = 1f;
-        public float chanceToBeBoss = 0f; // chance to spawn as boss variant
+        public bool canBeBoss = false; // chance to spawn as boss variant
     }
 
     [Header("Spawn table (set in Inspector)")]
@@ -22,6 +22,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn settings")]
     [SerializeField] private Transform player;
     [SerializeField] private EnemyDifficultyScaler enemyDifficultyScaler;
+
+    // 1% per minute to spawn as boss
+    private float BossChance => GameManager.Instance.totalTime / 60f / 100f;
 
     public void SpawnEnemy(Vector3 targetPosition, int playerLevel)
     {
@@ -88,22 +91,26 @@ public class EnemySpawner : MonoBehaviour
             }
             roll -= scaledWeight;
             if (roll <= 0f)
-                return PrefabOrBoss(e.prefab, e.chanceToBeBoss);
+                return PrefabOrBoss(e.prefab, e.canBeBoss);
         }
         // Fallback (rare float edge case)
         for (int i = spawnTable.Length - 1; i >= 0; i--)
             if (spawnTable[i].prefab != null && level >= spawnTable[i].minPlayerLevel && spawnTable[i].weight > 0f)
-                return PrefabOrBoss(spawnTable[i].prefab, spawnTable[i].chanceToBeBoss);
+                return PrefabOrBoss(spawnTable[i].prefab, spawnTable[i].canBeBoss);
 
         return null;
     }
 
-    GameObject PrefabOrBoss(GameObject prefab, float chanceToBeBoss)
+    private GameObject PrefabOrBoss(GameObject prefab, bool canBeBoss)
     {
-        if (bossPrefab != null && UnityEngine.Random.value < chanceToBeBoss)
+        if (canBeBoss)
         {
-            return bossPrefab;
+            if (bossPrefab != null && UnityEngine.Random.value < BossChance)
+            {
+                return bossPrefab;
+            }
         }
+
         return prefab;
     }
 }
