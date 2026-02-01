@@ -24,7 +24,7 @@ MonoBehaviour:
   projectileCount: 8
   projectilePiercing: 0
   projectileBounce: 2
-  projectileBounceRange: 5
+  projectileBounceRange: 10
   projectileDamageDelay: 0
   projectileDestroyDelay: 0.3
   projectileLifetime: 0
