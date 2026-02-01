@@ -59,7 +59,7 @@ public class MaskOptionPanel : MonoBehaviour
 
         modes.Add(EMaskEquipMode.damage);
 
-        if (_maskInfo.spawnType == MaskInfo.ESpawnType.orbital)
+        if (_maskInfo.spawnType != MaskInfo.ESpawnType.orbital)
         {
             modes.Add(EMaskEquipMode.cooldown);
         }
