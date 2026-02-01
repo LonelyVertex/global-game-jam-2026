@@ -12,11 +12,22 @@ public class MaskOptionPanel : MonoBehaviour
     private MaskInfo _maskInfo;
     private InputAction _inputAction;
 
+    private void OnDestroy()
+    {
+        if (_inputAction == null)
+        {
+            return;
+        }
+
+        _inputAction.performed -= HandleInputAction;
+    }
+
     public void SetMaskInfo(MaskInfo maskInfo, InputAction inputAction)
     {
         _maskInfo = maskInfo;
         _inputAction = inputAction;
 
+        maskImage.sprite = maskInfo.icon;
         maskNameText.text = maskInfo.maskName;
         maskDescriptionText.text = maskInfo.description;
 
@@ -33,6 +44,11 @@ public class MaskOptionPanel : MonoBehaviour
 
     private void HandleInputAction(InputAction.CallbackContext ctx)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         _inputAction.performed -= HandleInputAction;
         _inputAction.Disable();
 

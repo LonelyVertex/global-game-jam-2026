@@ -17,5 +17,6 @@ public class SkillInfo : ScriptableObject
     public string description;
     public float value;
     public SkillType type;
+    public Sprite icon;
 
 }

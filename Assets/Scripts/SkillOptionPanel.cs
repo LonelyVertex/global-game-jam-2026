@@ -12,11 +12,22 @@ public class SkillOptionPanel : MonoBehaviour
     private SkillInfo _skillInfo;
     private InputAction _inputAction;
 
+    private void OnDestroy()
+    {
+        if (_inputAction == null)
+        {
+            return;
+        }
+
+        _inputAction.performed -= HandleInputAction;
+    }
+
     public void SetSkillInfo(SkillInfo skillInfo, InputAction inputAction)
     {
         _skillInfo = skillInfo;
         _inputAction = inputAction;
 
+        image.sprite = skillInfo.icon;
         nameText.text = skillInfo.skillName;
         descriptionText.text = skillInfo.description;
 
@@ -32,6 +43,11 @@ public class SkillOptionPanel : MonoBehaviour
 
     private void HandleInputAction(InputAction.CallbackContext obj)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         _inputAction.performed -= HandleInputAction;
         _inputAction.Disable();
 
