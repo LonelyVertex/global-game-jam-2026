@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject model;
 
     private MaskInfo _maskInfo;
+    private MaskProjectileManager _maskProjectileManager;
     private Transform _targetTransform;
     private Vector3 _lastTargetPosition;
 
@@ -20,9 +21,10 @@ public class Projectile : MonoBehaviour
 
     private bool _isBeingDestroyed;
 
-    public void SetMaskInfo(MaskInfo maskInfo)
+    public void SetMaskInfo(MaskInfo maskInfo, MaskProjectileManager maskProjectileManager)
     {
         _maskInfo = maskInfo;
+        _maskProjectileManager = maskProjectileManager;
 
         if (maskInfo.projectileLifetime > 0)
         {
@@ -38,7 +40,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_maskInfo) return;
+        if (!_maskInfo || !_maskProjectileManager) return;
         if (_isBeingDestroyed) return;
 
         if (_maskInfo.spawnType == MaskInfo.ESpawnType.target)
@@ -83,7 +85,7 @@ public class Projectile : MonoBehaviour
         {
             _hits.Add(other.gameObject);
 
-            var damage = PlayerStats.Instance.ScaleDamage(_maskInfo.damage);
+            var damage = PlayerStats.Instance.ScaleDamage(_maskProjectileManager.Damage);
 
             if (damage > 0)
             {
@@ -96,7 +98,7 @@ public class Projectile : MonoBehaviour
             SpawnHitEffect(other.transform);
         }
 
-        if (_maskInfo.projectileBounce > 0)
+        if (_maskProjectileManager.Bounces > 0)
         {
             BounceOrDestroy();
         }
@@ -113,7 +115,7 @@ public class Projectile : MonoBehaviour
             _bouncedTargets.Add(_targetTransform);
         }
 
-        if (_maskInfo.projectileBounce > 0 && _bounceCount < _maskInfo.projectileBounce)
+        if (_maskProjectileManager.Bounces > 0 && _bounceCount < _maskProjectileManager.Bounces)
         {
             var nextEnemy = Utils
                 .FindEnemiesInRange(transform.position, _maskInfo.projectileBounceRange)
@@ -141,7 +143,8 @@ public class Projectile : MonoBehaviour
         if (_maskInfo.splashPrefab != null)
         {
             var spawnPosition = Utils.Vector3XY(hitTransform ? hitTransform.position : transform.position, _maskInfo.splashPrefab.transform.position);
-            Instantiate(_maskInfo.splashPrefab, spawnPosition, Quaternion.identity);
+            var splashObject = Instantiate(_maskInfo.splashPrefab, spawnPosition, Quaternion.identity);
+            splashObject.GetComponent<Splash>().SetUp(_maskProjectileManager);
         }
     }
 

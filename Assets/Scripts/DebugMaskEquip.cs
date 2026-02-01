@@ -6,6 +6,6 @@ public class DebugMaskEquip : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.EquipMask(maskInfo);
+        GameManager.Instance.EquipMask(maskInfo, EMaskEquipMode.newMask);
     }
 }

@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float difficultyShape = 1.6f;
 
     public readonly List<MaskInfo> _equippedMasks = new();
+    public readonly Dictionary<MaskInfo, MaskProjectileManager> _maskManagers = new();
 
     private float movementSpeedBonus = 0f;
     private float regenerationBonus = 0f;
@@ -120,9 +121,24 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public bool HasMask(MaskInfo maskInfo)
+    {
+        return _maskManagers.ContainsKey(maskInfo);
+    }
+
     public void EquipMask(MaskInfo maskInfo)
     {
         _equippedMasks.Add(maskInfo);
+    }
+
+    public void AddMaskManager(MaskInfo maskInfo, MaskProjectileManager manager)
+    {
+        _maskManagers[maskInfo] = manager;
+    }
+
+    public MaskProjectileManager GetMaskManager(MaskInfo maskInfo)
+    {
+        return _maskManagers[maskInfo];
     }
 
     private void Die()
@@ -200,7 +216,7 @@ public class PlayerStats : MonoBehaviour
     public float GetDamangeScaler()
     {
         return damageScaler+ScalingFunction(1, damageBonus);
-    }   
+    }
 
     public float ScalingFunction(float K, float value)
     {

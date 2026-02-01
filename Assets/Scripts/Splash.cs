@@ -4,6 +4,13 @@ public class Splash : MonoBehaviour
 {
     [SerializeField] private MaskInfo maskInfo;
 
+    private MaskProjectileManager _maskProjectileManager;
+
+    public void SetUp(MaskProjectileManager maskProjectileManager)
+    {
+        _maskProjectileManager = maskProjectileManager;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -31,7 +38,7 @@ public class Splash : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(
-                    PlayerStats.Instance.ScaleDamage(maskInfo.splashDamage),
+                    PlayerStats.Instance.ScaleDamage(_maskProjectileManager.SplashDamage),
                     PlayerStats.Instance.IsCriticalHit());
             }
         }

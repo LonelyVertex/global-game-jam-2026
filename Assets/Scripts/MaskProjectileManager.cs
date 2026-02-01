@@ -4,12 +4,37 @@ using UnityEngine;
 
 public class MaskProjectileManager : MonoBehaviour
 {
+    public int ExtraDamage { get; set; }
+    public int ExtraSplashDamage { get; set; }
+    public int ExtraShootingCount { get; set; }
+    public int ExtraProjectileCount { get; set; }
+    public int ExtraBounces { get; set; }
+    public int ExtraOrbitalSpeed
+    {
+        get => _extraOrbitalSpeed;
+        set
+        {
+            _extraOrbitalSpeed = value;
+
+            SpawnOrbitalProjectiles();
+        }
+    }
+
+    private int _extraOrbitalSpeed;
+
     private MaskInfo _maskInfo;
     private float _lastProjectile;
 
     private readonly List<Transform> _orbitingProjectiles = new();
 
     private PlayerController _playerController;
+
+    public int Damage => _maskInfo.damage + ExtraDamage;
+    public int SplashDamage => _maskInfo.splashDamage + ExtraSplashDamage;
+    private float Cooldown => _maskInfo.cooldown / (1 + ExtraShootingCount);
+    private int ProjectileCount => _maskInfo.projectileCount + ExtraProjectileCount;
+    public int Bounces => _maskInfo.projectileBounce + ExtraBounces;
+    private float OrbitalSpeed => _maskInfo.orbitalSpeed + ExtraOrbitalSpeed;
 
     public void SetMaskInfo(MaskInfo maskInfo)
     {
@@ -43,7 +68,7 @@ public class MaskProjectileManager : MonoBehaviour
 
     private void UpdateShooting()
     {
-        if (_lastProjectile + PlayerStats.Instance.ScaleCooldown(_maskInfo.cooldown) <= Time.time)
+        if (_lastProjectile + PlayerStats.Instance.ScaleCooldown(Cooldown) <= Time.time)
         {
             SpawnProjectiles();
             _lastProjectile = Time.time;
@@ -55,7 +80,7 @@ public class MaskProjectileManager : MonoBehaviour
         // Rotate around the player and follow
         foreach (var orbitingProjectile in _orbitingProjectiles)
         {
-            var orbitalSpeed = PlayerStats.Instance.ScaleOrbitalSpeed(_maskInfo.orbitalSpeed);
+            var orbitalSpeed = PlayerStats.Instance.ScaleOrbitalSpeed(OrbitalSpeed);
             orbitingProjectile.RotateAround(transform.position, Vector3.up, orbitalSpeed * Time.deltaTime);
         }
     }
@@ -88,9 +113,10 @@ public class MaskProjectileManager : MonoBehaviour
 
     private bool SpawnProjectilesFrontal()
     {
-        int projectileCount = PlayerStats.Instance.ScaleProjectileCount(_maskInfo.projectileCount);
-        float angleStep = _maskInfo.frontalSpreadAngle / (projectileCount - 1);
-        float startingAngle = -_maskInfo.frontalSpreadAngle / 2;
+        int projectileCount = PlayerStats.Instance.ScaleProjectileCount(ProjectileCount);
+        float spreadAngle = Mathf.Min(_maskInfo.frontalSpreadAngle, 360f / ProjectileCount);
+        float angleStep = spreadAngle / (projectileCount - 1);
+        float startingAngle = -spreadAngle / 2;
 
         for (int i = 0; i < projectileCount; i++)
         {
@@ -103,7 +129,7 @@ public class MaskProjectileManager : MonoBehaviour
             var projectileObject =
                 Instantiate(_maskInfo.projectilePrefab, spawnPosition, rotation);
             var projectile = projectileObject.GetComponent<Projectile>();
-            projectile.SetMaskInfo(_maskInfo);
+            projectile.SetMaskInfo(_maskInfo, this);
         }
 
         return projectileCount > 0;
@@ -115,14 +141,14 @@ public class MaskProjectileManager : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(_playerController.playerModel.forward);
         var projectileObject = Instantiate(_maskInfo.projectilePrefab, spawnPosition, rotation);
         var projectile = projectileObject.GetComponent<Projectile>();
-        projectile.SetMaskInfo(_maskInfo);
+        projectile.SetMaskInfo(_maskInfo, this);
 
         return true;
     }
 
     private bool SpawnProjectilesTargetOrDirectional()
     {
-        int projectileCount = PlayerStats.Instance.ScaleProjectileCount(_maskInfo.projectileCount);
+        int projectileCount = PlayerStats.Instance.ScaleProjectileCount(ProjectileCount);
         var enemies = FindEnemiesInRange(projectileCount);
 
         bool anyEnemies = false;
@@ -138,7 +164,7 @@ public class MaskProjectileManager : MonoBehaviour
             var projectileObject =
                 Instantiate(_maskInfo.projectilePrefab, spawnPosition, Quaternion.LookRotation(direction));
             var projectile = projectileObject.GetComponent<Projectile>();
-            projectile.SetMaskInfo(_maskInfo);
+            projectile.SetMaskInfo(_maskInfo, this);
             if (_maskInfo.spawnType == MaskInfo.ESpawnType.target)
             {
                 projectile.SetTarget(e.transform);
@@ -167,9 +193,9 @@ public class MaskProjectileManager : MonoBehaviour
 
         _orbitingProjectiles.Clear();
 
-        float angleStep = 360f / _maskInfo.projectileCount;
+        float angleStep = 360f / ProjectileCount;
 
-        for (int i = 0; i < _maskInfo.projectileCount; i++)
+        for (int i = 0; i < ProjectileCount; i++)
         {
             float angle = i * angleStep;
             float radians = angle * Mathf.Deg2Rad;
@@ -184,7 +210,7 @@ public class MaskProjectileManager : MonoBehaviour
             projectileObject.transform.position = spawnPosition;
 
             var projectile = projectileObject.GetComponent<Projectile>();
-            projectile.SetMaskInfo(_maskInfo);
+            projectile.SetMaskInfo(_maskInfo, this);
 
             _orbitingProjectiles.Add(projectileObject.transform);
         }

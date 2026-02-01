@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private LayerMask obstacleMask;
     [SerializeField] private float spawnClearanceRadius = 0.3f;
     [SerializeField] private int maxSpawnAttempts = 30;
-    
+
     [Header("Game State")]
     public float totalTime = 0f;
     public int totalKills = 0;
@@ -117,20 +117,59 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void EquipMask(MaskInfo maskInfo)
+    public void EquipMask(MaskInfo maskInfo, EMaskEquipMode equipMode)
     {
-        var playerTransform = PlayerStats.Instance.transform;
-
         PlayerStats.Instance.EquipMask(maskInfo);
 
-        var managerObject = Instantiate(maskProjectileManagerPrefab, playerTransform);
-        managerObject.GetComponent<MaskProjectileManager>().SetMaskInfo(maskInfo);
+        EquipMaskManager(maskInfo, equipMode);
 
         MasksProvider.Instance.EquipMask(maskInfo);
         PlayerMasksController.Instance.EquipMask(maskInfo);
 
         maskSelectionPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    private void EquipMaskManager(MaskInfo maskInfo, EMaskEquipMode equipMode)
+    {
+        if (equipMode == EMaskEquipMode.newMask)
+        {
+            var playerTransform = PlayerStats.Instance.transform;
+            var managerObject = Instantiate(maskProjectileManagerPrefab, playerTransform);
+            var maskProjectileManager = managerObject.GetComponent<MaskProjectileManager>();
+            maskProjectileManager.SetMaskInfo(maskInfo);
+
+            PlayerStats.Instance.AddMaskManager(maskInfo, maskProjectileManager);
+
+            return;
+        }
+
+        var manager = PlayerStats.Instance.GetMaskManager(maskInfo);
+        if (!manager) return;
+
+        switch (equipMode)
+        {
+            case EMaskEquipMode.damage:
+                manager.ExtraDamage += maskInfo.damage;
+                manager.ExtraSplashDamage += maskInfo.splashDamage;
+                break;
+
+            case EMaskEquipMode.cooldown:
+                manager.ExtraShootingCount += 1;
+                break;
+
+            case EMaskEquipMode.projectileCount:
+                manager.ExtraProjectileCount += maskInfo.projectileCount;
+                break;
+
+            case EMaskEquipMode.projectileBounce:
+                manager.ExtraBounces += Mathf.Max(1, maskInfo.projectileBounce);
+                break;
+
+            case EMaskEquipMode.orbitalSpeed:
+                manager.ExtraOrbitalSpeed += manager.ExtraOrbitalSpeed;
+                break;
+        }
     }
 
     public void TakeSkill(SkillInfo skillInfo)
