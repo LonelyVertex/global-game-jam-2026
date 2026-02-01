@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RailgunMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Railgun Mask
-  description: 
+  description: One beam, big consequences.
   damage: 100
   range: 20
   cooldown: 3

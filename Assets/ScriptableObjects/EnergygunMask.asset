@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
   m_Name: EnergygunMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Energygun Mask
-  description: 
+  maskName: Energy Gun Mask
+  description: It just keeps hitting things.
   damage: 20
   range: 10
   cooldown: 2

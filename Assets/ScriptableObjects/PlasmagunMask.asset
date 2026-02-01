@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
   m_Name: PlasmagunMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Plasmagun Mask
-  description: 
+  maskName: Plasma Gun Mask
+  description: Bounces until something stops existing.
   damage: 20
   range: 15
   cooldown: 1

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27c162c90aaf4c30806f9d093834291, type: 3}
   m_Name: RocketLauncherMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
-  maskName: Rocket Launcher mask
-  description: 
+  maskName: Rocket Launcher Mask
+  description: Explosions arrive shortly.
   damage: 0
   range: 15
   cooldown: 2

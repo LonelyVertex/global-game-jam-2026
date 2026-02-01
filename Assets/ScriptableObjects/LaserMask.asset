@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Laser Mask
-  description: 
+  description: Not strong. Just persistent.
   damage: 50
   range: 20
   cooldown: 0.75

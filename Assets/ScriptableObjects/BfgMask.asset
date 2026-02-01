@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BfgMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: BFG Mask
-  description: 
+  description: A gentle reminder that balance is optional.
   damage: 0
   range: 15
   cooldown: 5

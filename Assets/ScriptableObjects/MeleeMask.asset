@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Melee Mask
-  description: 
+  description: For enemies with boundary issues.
   damage: 50
   range: 0
   cooldown: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RazoronMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Razoron Mask
-  description: 
+  description: Spins. Slices.
   damage: 20
   range: 0
   cooldown: 0

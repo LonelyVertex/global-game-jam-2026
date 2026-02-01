@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DragonsBreathMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Dragon's Breath Mask
-  description: 
+  description: Personal space, enforced by fire.
   damage: 120
   range: 0
   cooldown: 3

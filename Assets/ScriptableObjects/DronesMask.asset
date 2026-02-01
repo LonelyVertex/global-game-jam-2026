@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DronesMask
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Drones Mask
-  description: 
+  description: Like friends, but more explosive.
   damage: 0
   range: 0
   cooldown: 0
