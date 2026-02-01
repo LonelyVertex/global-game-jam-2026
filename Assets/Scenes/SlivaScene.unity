@@ -1598,6 +1598,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 889337625819904814, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
   m_PrefabInstance: {fileID: 1043234471}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1044984769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 424256228166316317, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_Name
+      value: ShotgunProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.67229
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 676453401692786664, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
 --- !u!1 &1062971768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99558f58a8404404389285a54b281232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugMaskEquip
-  maskInfo: {fileID: 11400000, guid: 1242a838506434874bf5fe56e7230e5d, type: 2}
+  maskInfo: {fileID: 11400000, guid: 058ec18ba728e442383e9d03bbe6a43d, type: 2}
 --- !u!4 &1062971770
 Transform:
   m_ObjectHideFlags: 0
@@ -3030,7 +3087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5116890117079842555, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.58
       objectReference: {fileID: 0}
     - target: {fileID: 5116890117079842555, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3038,7 +3095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5116890117079842555, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 6.26
       objectReference: {fileID: 0}
     - target: {fileID: 5116890117079842555, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3613,3 +3670,4 @@ SceneRoots:
   - {fileID: 4780469396094420718}
   - {fileID: 1945436792}
   - {fileID: 1969417162}
+  - {fileID: 1044984769}
