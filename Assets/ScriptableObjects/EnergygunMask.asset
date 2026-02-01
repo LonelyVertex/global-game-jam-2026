@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Energy Gun Mask
   description: It just keeps hitting things.
-  damage: 20
+  damage: 40
   range: 10
   cooldown: 2
   spawnType: 0

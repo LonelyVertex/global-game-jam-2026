@@ -21,7 +21,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3108319004652501782, guid: 12feffbdebb0946599a344e269b088f0, type: 3}
   projectileSpawnRadius: 1
   projectileSpeed: 30
-  projectileCount: 1
+  projectileCount: 2
   projectilePiercing: 0
   projectileBounce: 0
   projectileBounceRange: 0
