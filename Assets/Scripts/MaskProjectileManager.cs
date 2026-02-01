@@ -13,7 +13,11 @@ public class MaskProjectileManager : MonoBehaviour
         set
         {
             _extraProjectileCount = value;
-            SpawnOrbitalProjectiles();
+
+            if (_maskInfo.spawnType == MaskInfo.ESpawnType.orbital)
+            {
+                SpawnOrbitalProjectiles();
+            }
         }
     }
     public int ExtraBounces { get; set; }
