@@ -130,6 +130,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9af3d804eab4a4390fa0daa004f32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
+--- !u!114 &314460143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot1
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 4488c7d1-b1d4-4bb0-ac51-507009bf5c30
 --- !u!1001 &403820262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +332,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2025132185125746571, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 314460143}
+    - target: {fileID: 2025132185125746571, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1603570052}
+    - target: {fileID: 2025132185125746571, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 841139150}
+    - target: {fileID: 2251566457646635551, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1159019281}
+    - target: {fileID: 2251566457646635551, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 644912354}
+    - target: {fileID: 2251566457646635551, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+      propertyPath: 'slotInputs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1765620833}
     - target: {fileID: 3217149748085451187, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
       propertyPath: m_Name
       value: GameUICanvas
@@ -562,6 +600,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
+--- !u!114 &644912354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot2
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: a3888c19-09eb-44e7-861c-f4fac4b0a98b
 --- !u!1 &759943035
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +709,20 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 30, z: -25}
+--- !u!114 &841139150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot3
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: df5c0295-1efd-40f9-8d85-b269c6235517
 --- !u!1 &969173352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3220988485708760117, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
@@ -681,6 +747,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: bd11fa6d-7780-4bc8-85de-d399c6688f19
+--- !u!114 &1159019281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot1
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 4488c7d1-b1d4-4bb0-ac51-507009bf5c30
 --- !u!114 &1160112358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,6 +981,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b991b0d73d40692488bebc3c4afdad6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeInOnLevelStart
+--- !u!114 &1603570052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot2
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: a3888c19-09eb-44e7-861c-f4fac4b0a98b
+--- !u!114 &1765620833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Slot3
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: df5c0295-1efd-40f9-8d85-b269c6235517
 --- !u!1001 &1885101635
 PrefabInstance:
   m_ObjectHideFlags: 0
