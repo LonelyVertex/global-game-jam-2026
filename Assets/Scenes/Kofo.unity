@@ -617,14 +617,18 @@ MonoBehaviour:
     minPlayerLevel: 1
     weight: 70
     weightScaler: 1
+    chanceToBeBoss: 0
   - prefab: {fileID: 2072368069548183866, guid: 2c3595c98b3b9462f9b11158c155bcec, type: 3}
     minPlayerLevel: 3
     weight: 30
     weightScaler: 2
+    chanceToBeBoss: 0
   - prefab: {fileID: 7168572403453694328, guid: eb06286c4d8644b13ab10e23f087dd87, type: 3}
     minPlayerLevel: 5
     weight: 10
     weightScaler: 3
+    chanceToBeBoss: 0.1
+  bossPrefab: {fileID: 8817243026316181552, guid: 44477e1fce25142a2be16825bb1a3939, type: 3}
   player: {fileID: 969173356}
   enemyDifficultyScaler: {fileID: 489978808}
 --- !u!114 &489978808

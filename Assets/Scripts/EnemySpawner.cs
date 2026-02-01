@@ -12,10 +12,12 @@ public class EnemySpawner : MonoBehaviour
         [Min(1)] public int minPlayerLevel = 1;   // eligible if playerLevel >= this
         [Min(0f)] public float weight = 1f;       // higher = more likely
         public float weightScaler = 1f;
+        public float chanceToBeBoss = 0f; // chance to spawn as boss variant
     }
 
     [Header("Spawn table (set in Inspector)")]
     [SerializeField] private EnemySpawnEntry[] spawnTable;
+    [SerializeField] private GameObject bossPrefab;
 
     [Header("Spawn settings")]
     [SerializeField] private Transform player;
@@ -86,13 +88,22 @@ public class EnemySpawner : MonoBehaviour
             }
             roll -= scaledWeight;
             if (roll <= 0f)
-                return e.prefab;
+                return PrefabOrBoss(e.prefab, e.chanceToBeBoss);
         }
         // Fallback (rare float edge case)
         for (int i = spawnTable.Length - 1; i >= 0; i--)
             if (spawnTable[i].prefab != null && level >= spawnTable[i].minPlayerLevel && spawnTable[i].weight > 0f)
-                return spawnTable[i].prefab;
+                return PrefabOrBoss(spawnTable[i].prefab, spawnTable[i].chanceToBeBoss);
 
         return null;
+    }
+
+    GameObject PrefabOrBoss(GameObject prefab, float chanceToBeBoss)
+    {
+        if (bossPrefab != null && UnityEngine.Random.value < chanceToBeBoss)
+        {
+            return bossPrefab;
+        }
+        return prefab;
     }
 }
