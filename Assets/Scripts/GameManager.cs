@@ -153,6 +153,8 @@ public class GameManager : MonoBehaviour
         gamePauseUIController.gameObject.SetActive(false);
 
         gameOverUIController.gameObject.SetActive(true);
+
+        MasksProvider.Instance.HideMasks();
     }
 
     public void ShowMaskSelection()

@@ -28,6 +28,11 @@ public class MasksProvider : MonoBehaviour
         MarkDirty();
     }
 
+    public void HideMasks()
+    {
+        masksRoot.gameObject.SetActive(false);
+    }
+
     private void MarkDirty()
     {
         Version++;
