@@ -23,8 +23,8 @@ MonoBehaviour:
   projectileSpeed: 30
   projectileCount: 8
   projectilePiercing: 0
-  projectileBounce: 0
-  projectileBounceRange: 0
+  projectileBounce: 2
+  projectileBounceRange: 5
   projectileDamageDelay: 0
   projectileDestroyDelay: 0.3
   projectileLifetime: 0
