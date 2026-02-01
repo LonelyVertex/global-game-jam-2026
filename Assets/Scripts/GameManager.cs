@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Over")]
     public GameOverUIController gameOverUIController;
+    public CinemachineCamera deathCamera;
 
     public static GameManager Instance { get; private set; }
 
@@ -136,7 +138,14 @@ public class GameManager : MonoBehaviour
 
     public void ShowDeathScreen()
     {
+        foreach (var e in activesEnemies)
+        {
+            e.gameObject.SetActive(false);
+        }
+
         Time.timeScale = 0;
+
+        deathCamera.gameObject.SetActive(true);
 
         maskSelectionPanel.gameObject.SetActive(false);
         skillSelectionPanel.gameObject.SetActive(false);
@@ -233,7 +242,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < maxSpawnAttempts; i++)
         {
             spawnPos = GetSpawnPositionOnCircle(center, radius);
-            
+
             // Raycast to the ground from the spawn position, if no element in layer ground is hit, it's invalid
             bool hasGround = Physics.Raycast(
                 spawnPos + Vector3.up * groundCheckDistance,
@@ -241,7 +250,7 @@ public class GameManager : MonoBehaviour
                 groundCheckDistance * 2f,
                 groundMask,
                 QueryTriggerInteraction.Ignore);
-            
+
             if (!hasGround)
             {
                 continue; // No ground found, try another position
@@ -253,7 +262,7 @@ public class GameManager : MonoBehaviour
                 spawnClearanceRadius,
                 obstacleMask,
                 QueryTriggerInteraction.Ignore);
-            
+
             if (!blocked)
             {
                 return true;

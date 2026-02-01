@@ -574,6 +574,7 @@ MonoBehaviour:
   pauseAction: {fileID: 2105781830}
   gamePauseUIController: {fileID: 473322775}
   gameOverUIController: {fileID: 473322777}
+  deathCamera: {fileID: 5042575844721376501}
   enemyCounter: 0
   maxEnemyCount: 300
 --- !u!4 &489978806
@@ -1219,6 +1220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8477100435460257793, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
+      propertyPath: IgnoreTimeScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9099669341698360077, guid: b987fad64d4009943870cd2be31b83ec, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 1
@@ -1268,6 +1273,10 @@ PrefabInstance:
     - target: {fileID: 3220988485708760117, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220988485708760117, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684967877407858729, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
       propertyPath: dashAction
@@ -1326,6 +1335,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
+--- !u!114 &5042575844721376501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8601310234018720317, guid: d6288c218fa644ca79ce0b6114b3ab85, type: 3}
+  m_PrefabInstance: {fileID: 5042575844721376500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
