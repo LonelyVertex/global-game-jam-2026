@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: damage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1984606911328019436, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
+      propertyPath: avoidancePriority
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 8029491610602271570, guid: 5b363adf4234c413a9991b5b6534e63d, type: 3}
       propertyPath: m_Name
       value: BossEnemy

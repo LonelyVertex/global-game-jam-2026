@@ -243,7 +243,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &2292736942974076069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovementController
   agent: {fileID: 1984606911328019436}
+  updateDelay: 2.5
 --- !u!1 &8045752512480688804
 GameObject:
   m_ObjectHideFlags: 0
