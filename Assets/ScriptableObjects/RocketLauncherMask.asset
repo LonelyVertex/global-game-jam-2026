@@ -15,8 +15,8 @@ MonoBehaviour:
   maskName: Rocket Launcher mask
   description: 
   damage: 0
-  range: 10
-  cooldown: 3
+  range: 15
+  cooldown: 2
   spawnType: 0
   projectilePrefab: {fileID: 5953861069092784413, guid: db7b20b0fe9f541ac96b107deed703b6, type: 3}
   projectileSpawnRadius: 1
@@ -31,8 +31,8 @@ MonoBehaviour:
   frontalSpreadAngle: 0
   orbitalSpeed: 0
   splashPrefab: {fileID: 8659791342826419200, guid: 33a2147c5aaec47c4bf940e832e1b344, type: 3}
-  splashDamage: 80
-  splashRadius: 3
+  splashDamage: 100
+  splashRadius: 7
   splashDamageDelay: 0.05
   splashLifetime: 0.7
   screenMaskPrefab: {fileID: 1821216846072979193, guid: 8c983054b422afe488143b040c677e55, type: 3}

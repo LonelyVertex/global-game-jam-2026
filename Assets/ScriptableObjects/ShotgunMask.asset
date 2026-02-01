@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Shotgun Mask
   description: 
-  damage: 10
+  damage: 50
   range: 10
   cooldown: 2
   spawnType: 2
   projectilePrefab: {fileID: 424256228166316317, guid: de7725f2d4aff48b6915131361004e7b, type: 3}
   projectileSpawnRadius: 1
   projectileSpeed: 100
-  projectileCount: 5
+  projectileCount: 10
   projectilePiercing: 0
   projectileBounce: 0
   projectileBounceRange: 0
   projectileDamageDelay: 0
   projectileDestroyDelay: 0.1
   projectileLifetime: 0
-  frontalSpreadAngle: 15
+  frontalSpreadAngle: 4
   orbitalSpeed: 0
   splashPrefab: {fileID: 0}
   splashDamage: 0

@@ -113,8 +113,8 @@ public class MaskProjectileManager : MonoBehaviour
     private bool SpawnProjectilesFrontal()
     {
         int projectileCount = PlayerStats.Instance.ScaleProjectileCount(ProjectileCount);
-        float spreadAngle = Mathf.Min(_maskInfo.frontalSpreadAngle, 360f / ProjectileCount);
-        float angleStep = spreadAngle / (projectileCount - 1);
+        float angleStep = Mathf.Min(_maskInfo.frontalSpreadAngle, 360f / ProjectileCount);
+        float spreadAngle = angleStep * ProjectileCount;
         float startingAngle = -spreadAngle / 2;
 
         for (int i = 0; i < projectileCount; i++)

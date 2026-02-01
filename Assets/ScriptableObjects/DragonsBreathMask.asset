@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskInfo
   maskName: Dragon's Breath Mask
   description: 
-  damage: 70
+  damage: 120
   range: 0
   cooldown: 3
   spawnType: 4

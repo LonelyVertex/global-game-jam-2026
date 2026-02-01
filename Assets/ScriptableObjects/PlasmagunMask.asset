@@ -15,7 +15,7 @@ MonoBehaviour:
   maskName: Plasmagun Mask
   description: 
   damage: 20
-  range: 10
+  range: 15
   cooldown: 1
   spawnType: 0
   projectilePrefab: {fileID: 3108319004652501782, guid: 949543d6a10804e31a76d3b73f8e62f9, type: 3}
@@ -23,8 +23,8 @@ MonoBehaviour:
   projectileSpeed: 30
   projectileCount: 1
   projectilePiercing: 0
-  projectileBounce: 2
-  projectileBounceRange: 5
+  projectileBounce: 5
+  projectileBounceRange: 10
   projectileDamageDelay: 0
   projectileDestroyDelay: 0
   projectileLifetime: 0

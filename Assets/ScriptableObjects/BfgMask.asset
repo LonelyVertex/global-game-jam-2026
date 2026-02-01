@@ -15,7 +15,7 @@ MonoBehaviour:
   maskName: BFG Mask
   description: 
   damage: 0
-  range: 20
+  range: 15
   cooldown: 5
   spawnType: 1
   projectilePrefab: {fileID: 1304932315916171918, guid: 366348d599e3a46a194d1050a48dd790, type: 3}
