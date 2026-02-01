@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillOptionPanel
   image: {fileID: 6490332290009231829}
   nameText: {fileID: 2426893211620373731}
-  descriptionText: {fileID: 2583616612439333040}
+  descriptionText: {fileID: 2552292080716471270}
   totalText: {fileID: 2583616612439333040}
   slotText: {fileID: 2613119812611646159}
   hpColor: {r: 0.078431375, g: 1, b: 0.18431373, a: 1}

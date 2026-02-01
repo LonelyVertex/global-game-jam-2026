@@ -505,6 +505,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd018fff88e54e11a0e5f5f2c9d3f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &473322777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7330034320767388899, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+  m_PrefabInstance: {fileID: 473322772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e4563a3e5466744b47c7c7d3e0c694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverUIController
 --- !u!1 &489978804
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +573,7 @@ MonoBehaviour:
   inGameUIController: {fileID: 473322776}
   pauseAction: {fileID: 2105781830}
   gamePauseUIController: {fileID: 473322775}
+  gameOverUIController: {fileID: 473322777}
 --- !u!4 &489978806
 Transform:
   m_ObjectHideFlags: 0
