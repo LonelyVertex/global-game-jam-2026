@@ -1072,8 +1072,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -222}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: 0, y: 128.1361}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1792638540
 MonoBehaviour:
@@ -1095,7 +1095,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cleanse the filthy planet
+  m_text: 'With great power
+
+    comes reduced visibility'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 949bd15d588994c3091036ac2417f715, type: 2}
   m_sharedMaterial: {fileID: 7656336831005209017, guid: 949bd15d588994c3091036ac2417f715, type: 2}
