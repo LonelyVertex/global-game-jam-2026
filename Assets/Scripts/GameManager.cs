@@ -202,6 +202,11 @@ public class GameManager : MonoBehaviour
         MasksProvider.Instance.EquipMask(maskInfo);
         PlayerMasksController.Instance.EquipMask(maskInfo);
 
+        if (PlayerStats.Instance._equippedMasks.Count == 1)
+        {
+            SoundManager.Instance.PlayMusic();
+        }
+
         maskSelectionPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
     }

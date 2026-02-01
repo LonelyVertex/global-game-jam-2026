@@ -3,8 +3,11 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private GameObject audioSourcePrefab;
+    [SerializeField] private AudioSource musicAudioSource;
 
     public static SoundManager Instance { get; private set; }
+
+    private bool _musicPlaying;
 
     private void Awake()
     {
@@ -16,6 +19,14 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void PlayMusic()
+    {
+        if (_musicPlaying) return;
+
+        musicAudioSource.Play();
+        _musicPlaying = true;
     }
 
     public void PlaySound(AudioClip clip)
