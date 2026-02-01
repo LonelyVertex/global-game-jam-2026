@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Healing +10%
   value: 0.1
   type: 3
+  icon: {fileID: 21300000, guid: 94a621ff3988e4b4fbefa5660c8a29bb, type: 3}

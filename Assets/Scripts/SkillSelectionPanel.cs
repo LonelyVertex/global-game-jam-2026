@@ -22,7 +22,7 @@ public class SkillSelectionPanel : MonoBehaviour
 
             var optionPanelObj = Instantiate(optionsPrefab, optionsParent);
             var optionPanel = optionPanelObj.GetComponent<SkillOptionPanel>();
-            optionPanel.SetSkillInfo(skillInfo, slotInputs[i].action);
+            optionPanel.SetSkillInfo(i + 1, skillInfo, slotInputs[i].action);
         }
     }
 

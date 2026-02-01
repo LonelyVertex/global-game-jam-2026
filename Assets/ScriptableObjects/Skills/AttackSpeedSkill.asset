@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Faster shooting +10%
   value: 0.1
   type: 4
+  icon: {fileID: 21300000, guid: f5aad58fd5877644086f5f7cc402d12f, type: 3}

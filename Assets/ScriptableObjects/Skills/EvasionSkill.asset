@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Improved by 10%
   value: 0.1
   type: 2
+  icon: {fileID: 21300000, guid: 6dc21adfbfb04144f91c7879f6631cee, type: 3}
