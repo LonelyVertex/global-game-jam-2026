@@ -483,6 +483,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a74cd66177e4044853d18c19d4152b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSelectionPanel
+--- !u!114 &473322775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5067837938984251568, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+  m_PrefabInstance: {fileID: 473322772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f53a31c24b8b748a766be6907d68f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamePauseUIController
+--- !u!114 &473322776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1636780725976746138, guid: aa004acc2aa614caea41b37720c1b76c, type: 3}
+  m_PrefabInstance: {fileID: 473322772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd018fff88e54e11a0e5f5f2c9d3f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &489978804
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +555,9 @@ MonoBehaviour:
   maxSpawnAttempts: 30
   totalTime: 0
   totalKills: 0
+  inGameUIController: {fileID: 473322776}
+  pauseAction: {fileID: 2105781830}
+  gamePauseUIController: {fileID: 473322775}
 --- !u!4 &489978806
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,6 +1112,20 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ddae24c043778541b5ce86e25e85879, type: 3}
+--- !u!114 &2105781830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Pause
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 730a2c1b-e379-430f-8b9f-5648fdb5ba96
 --- !u!1001 &399534680753426432
 PrefabInstance:
   m_ObjectHideFlags: 0
