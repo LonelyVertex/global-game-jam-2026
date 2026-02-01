@@ -175,6 +175,16 @@ public class GameManager : MonoBehaviour
             e.gameObject.SetActive(false);
         }
 
+        foreach (var p in FindObjectsByType<Projectile>(FindObjectsSortMode.None))
+        {
+            p.gameObject.SetActive(false);
+        }
+
+        foreach (var s in FindObjectsByType<Splash>(FindObjectsSortMode.None))
+        {
+            s.gameObject.SetActive(false);
+        }
+
         Time.timeScale = 0;
 
         deathCamera.gameObject.SetActive(true);
