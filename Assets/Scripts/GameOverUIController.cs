@@ -19,7 +19,7 @@ public class GameOverUIController : MonoBehaviour
 
         restartButton.onClick.AddListener(() => OnFinishedEvent?.Invoke());
 
-        timeText.text = GameManager.Instance.totalTime.ToString();
+        timeText.text = TimeSpan.FromSeconds(GameManager.Instance.totalTime).ToString(@"mm\:ss");
         killText.text = GameManager.Instance.totalKills.ToString();
     }
 
