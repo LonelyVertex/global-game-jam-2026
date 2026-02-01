@@ -36,7 +36,7 @@ MonoBehaviour:
   splashDamageDelay: 0.05
   splashLifetime: 0.8
   screenMaskPrefab: {fileID: 1821216846072979193, guid: 826f2c62673a4e44a952ceecdf77cf07, type: 3}
-  playerMaskPrefab: {fileID: 8339099675032260549, guid: c62a77a9fcf01b349ad346a11b8d5bb8, type: 3}
+  playerMaskPrefab: {fileID: 4041068729737148427, guid: 6431530499afeee41b10332d3cfefd57, type: 3}
   icon: {fileID: 21300000, guid: 050b6bbecfd4c344ebbd63dd7205f115, type: 3}
   shootSound: {fileID: 8300000, guid: dd6323d3e5e9b4c9eacb1381e7d96607, type: 3}
   splashSound: {fileID: 8300000, guid: 15db1467d2b274d84adb4bafcfdaa5bc, type: 3}
