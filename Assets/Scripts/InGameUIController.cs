@@ -25,8 +25,8 @@ public class InGameUIController : MonoBehaviour
     {
         if (PlayerStats.Instance == null || GameManager.Instance == null) return;
 
-        healthBarSlider.value = PlayerStats.Instance.hitpoints / PlayerStats.Instance.maxHitpoints;
-        healthBarLabel.text = PlayerStats.Instance.hitpoints.ToString("F0") + " / " + PlayerStats.Instance.maxHitpoints.ToString("F0");
+        healthBarSlider.value = PlayerStats.Instance.hitpoints / PlayerStats.Instance.TotalMaxHitpoints();
+        healthBarLabel.text = PlayerStats.Instance.hitpoints.ToString("F0") + " / " + PlayerStats.Instance.TotalMaxHitpoints().ToString("F0");
         killsCounter.text = GameManager.Instance.totalKills.ToString();
         //print time in seconds formatted to mm:ss
         float totalTime = GameManager.Instance.totalTime;

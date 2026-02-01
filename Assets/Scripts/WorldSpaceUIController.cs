@@ -52,7 +52,7 @@ public class WorldSpaceUIController : MonoBehaviour
         if (visible)
         {
             playerHealthTransform.anchoredPosition = localPoint + playerHealthOffset;
-            playerHealth.value = PlayerStats.Instance.hitpoints / PlayerStats.Instance.maxHitpoints;
+            playerHealth.value = PlayerStats.Instance.hitpoints / PlayerStats.Instance.TotalMaxHitpoints();
 
             dashCooldown.gameObject.SetActive(PlayerController.Instance.currentDashCooldown > 0.0f);
             dashCooldown.value = PlayerController.Instance.currentDashCooldown / PlayerController.Instance.dashCooldown;

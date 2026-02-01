@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -25,6 +24,9 @@ public class PlayerStats : MonoBehaviour
 
     private float movementSpeedBonus = 0f;
     private float regenerationBonus = 0f;
+    private float hitpointsBonus = 0f;
+    private float damageBonus = 0f;
+    private float damageScaler = 1f;
 
     private void Awake()
     {
@@ -48,10 +50,15 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         // Regenerate hitpoints over time
-        if (hitpoints < maxHitpoints && !IsDead())
+        if (hitpoints < TotalMaxHitpoints() && !IsDead())
         {
-            Heal(Mathf.Clamp(hitpointsRegen * Time.deltaTime, 0, maxHitpoints));
+            Heal(Mathf.Clamp(hitpointsRegen * Time.deltaTime, 0, TotalMaxHitpoints()));
         }
+    }
+
+    public float TotalMaxHitpoints()
+    {
+        return maxHitpoints + hitpointsBonus;
     }
 
     public float MovementSpeed
@@ -62,7 +69,7 @@ public class PlayerStats : MonoBehaviour
 
     public int ScaleDamage(int originalDamage)
     {
-        return originalDamage;
+        return Mathf.FloorToInt(originalDamage*GetDamangeScaler());
     }
 
     public float ScaleCooldown(float originalCooldown)
@@ -103,7 +110,7 @@ public class PlayerStats : MonoBehaviour
 
         if (effectiveDamage > 0)
         {
-            hitpoints = Mathf.Clamp(hitpoints - effectiveDamage, 0, maxHitpoints);
+            hitpoints = Mathf.Clamp(hitpoints - effectiveDamage, 0, TotalMaxHitpoints());
             Debug.Log($"Player took {effectiveDamage} damage. Remaining HP: {hitpoints}");
             if (hitpoints <= 0)
             {
@@ -125,7 +132,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Heal(float amount)
     {
-        hitpoints = Mathf.Clamp(hitpoints + amount, 0, maxHitpoints);
+        hitpoints = Mathf.Clamp(hitpoints + amount, 0, TotalMaxHitpoints());
     }
 
     public bool IsDead()
@@ -190,6 +197,11 @@ public class PlayerStats : MonoBehaviour
         return hitpointsRegen+ScalingFunction(1, regenerationBonus);
     }
 
+    public float GetDamangeScaler()
+    {
+        return damageScaler+ScalingFunction(1, damageBonus);
+    }   
+
     public float ScalingFunction(float K, float value)
     {
         return value / (value + K);
@@ -213,6 +225,12 @@ public class PlayerStats : MonoBehaviour
                 break;
             case SkillInfo.SkillType.attack_speed:
                 attackSpeed += skillInfo.value;
+                break;
+            case SkillInfo.SkillType.hitpoints:
+                hitpointsBonus += Mathf.FloorToInt(skillInfo.value);
+                break;
+            case SkillInfo.SkillType.damage:
+                damageBonus += skillInfo.value;
                 break;
             default:
                 Debug.LogWarning("Unknown skill type.");

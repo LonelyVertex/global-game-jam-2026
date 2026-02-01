@@ -88,7 +88,7 @@ public class Projectile : MonoBehaviour
             if (damage > 0)
             {
                 enemyHealth.TakeDamage(
-                    PlayerStats.Instance.ScaleDamage(_maskInfo.damage),
+                    damage,
                     PlayerStats.Instance.IsCriticalHit()
                 );
             }
