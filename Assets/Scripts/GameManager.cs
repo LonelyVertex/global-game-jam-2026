@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnMaskBox(Vector3 spawnPos, float radius)
     {
-        if (TryGetSpawnPositionOnCircle(spawnPos, radius, out var spawnPosition))
+        if (TryGetSpawnPositionOnCircle(spawnPos, radius, out var spawnPosition, 1000))
         {
             var spawnPositionAdjusted = Utils.Vector3XY(spawnPosition, maskBoxPrefab.transform.position);
             Instantiate(maskBoxPrefab, spawnPositionAdjusted, Quaternion.identity);
@@ -239,9 +239,13 @@ public class GameManager : MonoBehaviour
     private bool TryGetSpawnPositionOnCircle(
         Vector3 center,
         float radius,
-        out Vector3 spawnPos)
+        out Vector3 spawnPos,
+        int maxAttempts = 0
+        )
     {
-        for (int i = 0; i < maxSpawnAttempts; i++)
+        maxAttempts = maxAttempts > 0 ? maxAttempts : maxSpawnAttempts;
+
+        for (int i = 0; i < maxAttempts; i++)
         {
             spawnPos = GetSpawnPositionOnCircle(center, radius);
 

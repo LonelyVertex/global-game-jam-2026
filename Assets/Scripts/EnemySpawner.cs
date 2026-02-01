@@ -28,17 +28,19 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemyPrefab = PickEnemyPrefabByLevelAndWeight(playerLevel);
         if (enemyPrefab == null) return;
 
+        var enemyLevel = Mathf.CeilToInt(GameManager.Instance.totalTime / 20f);
+
         var spawnPosition = Utils.Vector3XY(targetPosition, enemyPrefab.transform.position);
         GameObject newSpawn = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         //Set Scaled speed
         var navMeshAgent = newSpawn.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        navMeshAgent.speed = enemyDifficultyScaler.ScaleSpeedWithLevel(navMeshAgent.speed, PlayerStats.Instance.currentLevel, 1);
+        navMeshAgent.speed = enemyDifficultyScaler.ScaleSpeedWithLevel(navMeshAgent.speed, enemyLevel, 1);
         //Set Scaled health
         var enemyHealth = newSpawn.GetComponent<EnemyHealth>();
-        enemyHealth.health = enemyDifficultyScaler.ScaleHealthWithLevel(enemyHealth.health, PlayerStats.Instance.currentLevel, 1);
+        enemyHealth.health = enemyDifficultyScaler.ScaleHealthWithLevel(enemyHealth.health, enemyLevel, 1);
         //Set Scaled damage
         var enemyAttack = newSpawn.GetComponent<EnemyWeaponController>();
-        enemyAttack.damage = enemyDifficultyScaler.ScaleDamageWithLevel(enemyAttack.damage, PlayerStats.Instance.currentLevel, 1);
+        enemyAttack.damage = enemyDifficultyScaler.ScaleDamageWithLevel(enemyAttack.damage, enemyLevel, 1);
 
         GameManager.Instance.activesEnemies.Add(newSpawn);
 
