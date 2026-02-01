@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 489978806}
   - component: {fileID: 489978805}
   - component: {fileID: 489978807}
+  - component: {fileID: 489978808}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -531,6 +532,22 @@ MonoBehaviour:
     minPlayerLevel: 10
     weight: 10
   player: {fileID: 969173356}
+  enemyDifficultyScaler: {fileID: 489978808}
+--- !u!114 &489978808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489978804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed81128fa9cb8497aa59fe30602bbfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDifficultyScaler
+  speedCaler: 0.1
+  healthScaler: 0.2
+  damageScaler: 0.1
 --- !u!114 &544263487
 MonoBehaviour:
   m_ObjectHideFlags: 0

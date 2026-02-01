@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn settings")]
     [SerializeField] private Transform player;
+    [SerializeField] private EnemyDifficultyScaler enemyDifficultyScaler;
 
     public void SpawnEnemy(Vector3 targetPosition, int playerLevel)
     {
@@ -27,7 +28,16 @@ public class EnemySpawner : MonoBehaviour
         if (enemyPrefab == null) return;
 
         var spawnPosition = Utils.Vector3XY(targetPosition, enemyPrefab.transform.position);
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject newSpawn = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        //Set Scaled speed
+        var navMeshAgent = newSpawn.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        navMeshAgent.speed = enemyDifficultyScaler.ScaleSpeedWithLevel(navMeshAgent.speed, PlayerStats.Instance.currentLevel, 1);
+        //Set Scaled health
+        var enemyHealth = newSpawn.GetComponent<EnemyHealth>();
+        enemyHealth.health = enemyDifficultyScaler.ScaleHealthWithLevel(enemyHealth.health, PlayerStats.Instance.currentLevel, 1);
+        //Set Scaled damage
+        var enemyAttack = newSpawn.GetComponent<EnemyWeaponController>();
+        enemyAttack.damage = enemyDifficultyScaler.ScaleDamageWithLevel(enemyAttack.damage, PlayerStats.Instance.currentLevel, 1);
     }
 
     private GameObject PickEnemyPrefabByLevelAndWeight(int level)

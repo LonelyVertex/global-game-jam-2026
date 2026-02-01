@@ -5,7 +5,7 @@ public class EnemyWeaponController : MonoBehaviour
     private bool inContactWithPlayer = false;
     [SerializeField] private float damageCooldown = 1f;
     private float lastDamageTime = -Mathf.Infinity;
-    [SerializeField] private float damage = 10;
+    [SerializeField] public float damage = 10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

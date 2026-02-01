@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Renderer materialRenderer;
     [SerializeField] private Material damageMaterial;
     [SerializeField] private float damageEffectTime;
-    [SerializeField] private float health = 100f;
+    [SerializeField] public float health = 100f;
     public float likelihoodToSpawnMask = 0.2f;
     public GameObject maskPrefab;
 
