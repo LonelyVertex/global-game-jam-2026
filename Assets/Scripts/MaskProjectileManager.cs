@@ -7,20 +7,19 @@ public class MaskProjectileManager : MonoBehaviour
     public int ExtraDamage { get; set; }
     public int ExtraSplashDamage { get; set; }
     public int ExtraShootingCount { get; set; }
-    public int ExtraProjectileCount { get; set; }
-    public int ExtraBounces { get; set; }
-    public int ExtraOrbitalSpeed
+    public int ExtraProjectileCount
     {
-        get => _extraOrbitalSpeed;
+        get => _extraProjectileCount;
         set
         {
-            _extraOrbitalSpeed = value;
-
+            _extraProjectileCount = value;
             SpawnOrbitalProjectiles();
         }
     }
+    public int ExtraBounces { get; set; }
+    public int ExtraOrbitalSpeed { get; set; }
 
-    private int _extraOrbitalSpeed;
+    private int _extraProjectileCount;
 
     private MaskInfo _maskInfo;
     private float _lastProjectile;
@@ -121,7 +120,8 @@ public class MaskProjectileManager : MonoBehaviour
         for (int i = 0; i < projectileCount; i++)
         {
             float angle = startingAngle + (i * angleStep);
-            Quaternion rotation = Quaternion.Euler(0, angle, 0) * Quaternion.LookRotation(_playerController.playerModel.forward);
+            Quaternion rotation = Quaternion.Euler(0, angle, 0) *
+                                  Quaternion.LookRotation(_playerController.playerModel.forward);
 
             var spawnPoint = transform.position + (rotation * Vector3.forward * _maskInfo.projectileSpawnRadius);
             var spawnPosition = Utils.Vector3XY(spawnPoint, _maskInfo.projectilePrefab.transform.position);
