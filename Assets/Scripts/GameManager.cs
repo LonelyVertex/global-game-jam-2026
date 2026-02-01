@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("Mask Box")]
     [SerializeField] private MaskBox maskBoxPrefab;
     [SerializeField] private float firstMaskRadius;
+    [SerializeField] private float secondMaskRadius;
 
     [Header("Spawn Settings")]
     [SerializeField]
@@ -67,17 +68,23 @@ public class GameManager : MonoBehaviour
         yield return levelGenerator.Generate();
 
         player.SetActive(true);
-        SpawnFirstMaskBox();
+        SpawnMaskBoxes();
         totalTime = 0f;
         totalKills = 0;
     }
 
-    private void SpawnFirstMaskBox()
+    private void SpawnMaskBoxes()
     {
-        if (TryGetSpawnPositionOnCircle(player.transform.position, firstMaskRadius, out var spawnPos))
+        SpawnMaskBox(player.transform.position, firstMaskRadius);
+        SpawnMaskBox(player.transform.position, secondMaskRadius);
+    }
+
+    private void SpawnMaskBox(Vector3 spawnPos, float radius)
+    {
+        if (TryGetSpawnPositionOnCircle(spawnPos, radius, out var spawnPosition))
         {
-            var spawnPosition = Utils.Vector3XY(spawnPos, maskBoxPrefab.transform.position);
-            Instantiate(maskBoxPrefab, spawnPosition, Quaternion.identity);
+            var spawnPositionAdjusted = Utils.Vector3XY(spawnPosition, maskBoxPrefab.transform.position);
+            Instantiate(maskBoxPrefab, spawnPositionAdjusted, Quaternion.identity);
         }
     }
 

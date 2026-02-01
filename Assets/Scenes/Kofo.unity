@@ -525,6 +525,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 489978807}
   maskBoxPrefab: {fileID: 3145572443098379115, guid: c579fd17545034ae2b255b5240f59bb0, type: 3}
   firstMaskRadius: 3
+  secondMaskRadius: 40
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
