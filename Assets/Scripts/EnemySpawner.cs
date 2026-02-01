@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
         [Min(1)] public int minPlayerLevel = 1;   // eligible if playerLevel >= this
         [Min(0f)] public float weight = 1f;       // higher = more likely
+        public float weightScaler = 1f;
     }
 
     [Header("Spawn table (set in Inspector)")]
@@ -52,7 +53,13 @@ public class EnemySpawner : MonoBehaviour
             if (level < e.minPlayerLevel) continue;
             if (e.weight <= 0f) continue;
 
-            totalWeight += e.weight;
+            //Scaled Weight
+            var scaledWeight = e.weight;
+            if (e.weightScaler > 1) {
+                scaledWeight = e.weight + (level - e.minPlayerLevel) * e.weightScaler;
+            }
+
+            totalWeight += scaledWeight;
         }
 
         if (totalWeight <= 0f) return null;
@@ -67,7 +74,12 @@ public class EnemySpawner : MonoBehaviour
             if (level < e.minPlayerLevel) continue;
             if (e.weight <= 0f) continue;
 
-            roll -= e.weight;
+            //Scaled Weight
+            var scaledWeight = e.weight;
+            if (e.weightScaler > 1) {
+                scaledWeight = e.weight + (level - e.minPlayerLevel) * e.weightScaler;
+            }
+            roll -= scaledWeight;
             if (roll <= 0f)
                 return e.prefab;
         }
