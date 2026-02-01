@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameObject Player => player;
-
+    public HashSet<GameObject> activesEnemies = new HashSet<GameObject>();
     public int enemyCounter = 0;
     public int maxEnemyCount = 100;
 
@@ -116,12 +117,13 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
 
-        if (Time.time - _lastSpawn >= spawnInterval && enemyCounter <= maxEnemyCount)
+        if (Time.time - _lastSpawn >= spawnInterval && enemyCounter < maxEnemyCount)
         {
             SpawnEnemy();
             _lastSpawn = Time.time;
         }
         totalTime += Time.deltaTime;
+        enemyCounter = activesEnemies.Count;
     }
 
     private void SpawnEnemy()

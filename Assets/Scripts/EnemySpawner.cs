@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         var enemyAttack = newSpawn.GetComponent<EnemyWeaponController>();
         enemyAttack.damage = enemyDifficultyScaler.ScaleDamageWithLevel(enemyAttack.damage, PlayerStats.Instance.currentLevel, 1);
 
-        GameManager.Instance.enemyCounter++;
+        GameManager.Instance.activesEnemies.Add(newSpawn);
 
     }
 

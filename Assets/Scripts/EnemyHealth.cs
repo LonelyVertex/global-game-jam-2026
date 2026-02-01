@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject maskPrefab;
 
     public float xp = 10f;
+    public bool dead = false;
 
     private float _resetMaterialTime;
     private Material originalMaterial;
@@ -49,15 +50,20 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Enemy died.");
-        
-        GameManager.Instance.totalKills += 1;
-        GameManager.Instance.enemyCounter--;
-        PlayerStats.Instance.AddXp(xp);
-
-        if (Random.value < likelihoodToSpawnMask)
+        if (!dead)
         {
-            Instantiate(maskPrefab, Utils.Vector3XY(transform.position, maskPrefab.transform.position), Quaternion.identity);
+            Debug.Log("Enemy died.");
+            
+            GameManager.Instance.totalKills += 1;
+            GameManager.Instance.activesEnemies.Remove(gameObject);
+
+            PlayerStats.Instance.AddXp(xp);
+
+            if (Random.value < likelihoodToSpawnMask)
+            {
+                Instantiate(maskPrefab, Utils.Vector3XY(transform.position, maskPrefab.transform.position), Quaternion.identity);
+            }
+            dead = true;
         }
         Destroy(gameObject);
     }
